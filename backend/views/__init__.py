@@ -1,1 +1,1 @@
-from .IndexView import *
+from .index_views import *

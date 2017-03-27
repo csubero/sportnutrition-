@@ -1,0 +1,40 @@
+{% extends 'backend/layout/template.html' %}
+
+
+{% block title %}
+
+	Category
+
+{% endblock %}
+
+{% block title_section %}
+
+	Category
+
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Add new category</h4>
+				</div>
+				<div class="content">
+					<form method="post" action="">{% csrf_token %}
+
+						{{ form.as_p }}
+
+						<div class="text-center">
+							<button type="submit" class="btn btn-info btn-fill btn-wd">Save Category</button>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

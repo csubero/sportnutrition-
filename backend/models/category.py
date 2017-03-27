@@ -1,4 +1,6 @@
+import itertools
 from django.db import models
+from django.template.defaultfilters import slugify
 
 
 class Category(models.Model):
@@ -8,3 +10,16 @@ class Category(models.Model):
 	active = models.BooleanField(default=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+
+	def save(self, *args, **kwargs):
+
+		if self.id is None:
+
+			max_length = Category._meta.get_field('slug').max_length
+			self.slug = slugify(self.title)[:max_length]
+			for x in itertools.count(1):
+				if not Category.objects.filter(slug=self.slug).exists():
+					break
+				self.slug = '%s-%d' % (self.slug, x)
+
+		super(Category, self).save(*args, **kwargs)
