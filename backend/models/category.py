@@ -11,6 +11,18 @@ class Category(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
+	@staticmethod
+	def get_by_id(id):
+		try:
+
+			category = Category.objects.get(pk=id)
+
+		except Category.DoesNotExist:
+
+			category = None
+
+		return category
+
 	def save(self, *args, **kwargs):
 
 		self.name = self.name.lower()

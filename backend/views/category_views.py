@@ -28,3 +28,13 @@ class CategoryIndexView(View):
 		category_list = Category.objects.all().order_by('name')
 
 		return render(request, self.template_name, {'form': form, 'category_list': category_list})
+
+
+class CategoryDeleteView(View):
+	def post(self, request):
+		category_id = request.POST.get("category_id")
+
+		category = Category.get_by_id(category_id)
+
+		if category is not None:
+			category.delete()

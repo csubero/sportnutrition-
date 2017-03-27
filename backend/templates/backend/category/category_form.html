@@ -61,7 +61,8 @@
 								<td>{{ category.name|title }}</td>
 								<td>{{ category.slug }}</td>
 								<td><a title="Delete" class="text-danger" data-toggle="modal"
-									   data-target="#delete_category_modal"><i class="ti-trash"></i></a></td>
+									   data-target="#delete_category_modal"
+									   onclick="delete_category({{ category.id }})"><i class="ti-trash"></i></a></td>
 							</tr>
 						{% endfor %}
 						</tbody>
@@ -88,6 +89,11 @@
         $('.nav li').removeClass('active');
 
         $('#categories_tab').addClass('active');
+
+        function delete_category(category_id) {
+            $("#category_id").val(category_id);
+        }
+
 	</script>
 
 {% endblock %}
