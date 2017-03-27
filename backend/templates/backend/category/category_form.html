@@ -35,6 +35,59 @@
 				</div>
 			</div>
 		</div>
+		<div class="col-md-8">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Categories</h4>
+				</div>
+				<div class="content table-responsive table-full-width">
+
+					<table class="table table-striped">
+						<thead>
+						<tr>
+							<td class="col-md-7">
+								Name
+							</td>
+							<td class="col-md-4">
+								Slug
+							</td>
+							<td class="col-md-1">
+							</td>
+						</tr>
+						</thead>
+						<tbody>
+						{% for category in category_list %}
+							<tr>
+								<td>{{ category.name|title }}</td>
+								<td>{{ category.slug }}</td>
+								<td><a title="Delete" class="text-danger" data-toggle="modal"
+									   data-target="#delete_category_modal"><i class="ti-trash"></i></a></td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
 	</div>
+
+
+
+{% endblock %}
+
+{% block modals %}
+
+	{% include 'backend/category/category_modal_confirm_delete.html' %}
+
+{% endblock %}
+
+{% block script_js %}
+
+	<script>
+        $('.nav li').removeClass('active');
+
+        $('#categories_tab').addClass('active');
+	</script>
 
 {% endblock %}

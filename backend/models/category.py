@@ -13,10 +13,12 @@ class Category(models.Model):
 
 	def save(self, *args, **kwargs):
 
+		self.name = self.name.lower()
+
 		if self.id is None:
 
 			max_length = Category._meta.get_field('slug').max_length
-			self.slug = slugify(self.title)[:max_length]
+			self.slug = slugify(self.name)[:max_length]
 			for x in itertools.count(1):
 				if not Category.objects.filter(slug=self.slug).exists():
 					break

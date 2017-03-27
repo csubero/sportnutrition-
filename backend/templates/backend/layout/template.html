@@ -22,6 +22,8 @@
 	<!--  Paper Dashboard core CSS    -->
 	<link href="{% static 'backend/assets/css/paper-dashboard.css' %}" rel="stylesheet"/>
 
+	<link href="{% static 'backend/assets/css/ct-paper.css' %}" rel="stylesheet"/>
+
 	<!--  CSS for Demo Purpose, don't include it in your project     -->
 	{% comment %}<link href="assets/css/demo.css" rel="stylesheet"/>/{% endcomment %}
 
@@ -44,18 +46,24 @@
 		<div class="sidebar-wrapper">
 			<div class="logo">
 				<a href="{% url 'backend.index' %}" class="simple-text">
-					SportNutrition
+					SportNutritionLT
 				</a>
 			</div>
 
 			<ul class="nav">
-				<li class="active">
-					<a href="dashboard.html">
-						<i class="ti-pie-chart"></i>
-						<p>Dashboard</p>
+				<li id="categories_tab">
+					<a href="{% url 'backend.category.index' %}">
+						<i class="ti-list"></i>
+						<p>Categories</p>
 					</a>
 				</li>
 
+				<li id="post_tab">
+					<a href="">
+						<i class="ti-pencil-alt"></i>
+						<p>Post</p>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -120,8 +128,8 @@
 				<div class="copyright pull-right">
 					&copy;
 					<script>document.write(new Date().getFullYear())</script>
-					, made with <i class="fa fa-heart heart"></i> by <a target="_blank" href="http://www.subero.com.ve">Carlos
-					Subero</a>
+					<a target="_blank" href="http://www.subero.com.ve">Carlos
+						Subero</a>
 				</div>
 			</div>
 		</footer>
@@ -129,6 +137,7 @@
 	</div>
 </div>
 
+{% block modals %}{% endblock %}
 
 </body>
 
@@ -151,8 +160,10 @@
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
 <script src="{% static 'backend/assets/js/paper-dashboard.js' %}"></script>
 
-<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-{% comment %}<script src="assets/js/demo.js"></script>{% endcomment %}
+<script src="{% static 'backend/assets/js/ct-paper.js' %}"></script>
+
+
+{% block script_js %}{% endblock %}
 
 
 </html>
