@@ -24,7 +24,7 @@ SECRET_KEY = 'y)90@1lex*j%47*5*((ws1c8f)2zs3c&*1584x60!f)-ulh%tm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.sportnutritionlt.com']
 
 # Application definition
 
