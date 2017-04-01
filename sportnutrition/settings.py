@@ -77,7 +77,7 @@ DATABASES = {
 		'NAME': 'sportnutritionlt',
 		'USER': 'sportnutritionlt_user',
 		'PASSWORD': 'sp0rtnutr1t10n',
-		'HOST': '127.0.0.1',
+		'HOST': 'localhost',
 		'PORT': '',
 	}
 }
