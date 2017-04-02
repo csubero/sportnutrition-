@@ -1,2 +1,2 @@
-from .post_model import Post
 from .category import Category
+from .post_model import Post
