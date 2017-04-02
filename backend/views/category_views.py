@@ -1,6 +1,5 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views import View
 
 from backend.forms import CategoryForm
@@ -23,7 +22,7 @@ class CategoryIndexView(View):
 		if form.is_valid():
 			form.save()
 
-			return HttpResponseRedirect(reverse_lazy('backend.category.index'))
+			return redirect(reverse('backend.category.index'))
 
 		category_list = Category.objects.all().order_by('name')
 
@@ -38,3 +37,5 @@ class CategoryDeleteView(View):
 
 		if category is not None:
 			category.delete()
+
+		return redirect(reverse('backend.category.index'))

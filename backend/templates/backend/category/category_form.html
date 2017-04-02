@@ -40,7 +40,7 @@
 				<div class="header">
 					<h4 class="title">Categories</h4>
 				</div>
-				<div class="content table-responsive table-full-width">
+				<div class="content table-responsive">
 
 					<table class="table table-striped">
 						<thead>
@@ -60,10 +60,15 @@
 							<tr>
 								<td>{{ category.name|title }}</td>
 								<td>{{ category.slug }}</td>
-								<td><a title="Delete" class="text-danger" data-toggle="modal"
+								<td><a href="#" title="Delete" class="text-danger" data-toggle="modal"
 									   data-target="#delete_category_modal"
 									   onclick="delete_category({{ category.id }})"><i class="ti-trash"></i></a></td>
 							</tr>
+
+						{% empty %}
+
+							<tr><td colspan="3" class="text-center">No categories to show</td></tr>
+
 						{% endfor %}
 						</tbody>
 					</table>
