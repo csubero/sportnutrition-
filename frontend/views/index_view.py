@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 
 
-class IndexView(View):
+class IndexTemporalView(View):
 	template_name = 'frontend/index/index.html'
 
 	def get(self, request):
