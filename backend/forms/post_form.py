@@ -1,5 +1,5 @@
 from django.contrib.admin.widgets import AdminFileWidget
-from django.forms import ModelForm, TextInput, Textarea, CheckboxSelectMultiple
+from django.forms import ModelForm, TextInput, Textarea, CheckboxSelectMultiple, Select
 from ckeditor.widgets import CKEditorWidget
 
 from backend.models import Post
@@ -10,7 +10,7 @@ class PostForm(ModelForm):
 	class Meta:
 		model = Post
 
-		fields = ['title', 'summary', 'body', 'thumb', 'categories']
+		fields = ['title', 'summary', 'body', 'thumb', 'categories', 'status']
 
 		widgets = {
 			'title': TextInput(attrs={'class': 'form-control border-input'}),
@@ -18,4 +18,5 @@ class PostForm(ModelForm):
 			'body': CKEditorWidget(),
 			'thumb': AdminImageWidget(attrs={'class': 'form-control border-input'}),
 			'categories': CheckboxSelectMultiple(),
+			'status': Select(attrs={'class': 'form-control border-input'})
 		}

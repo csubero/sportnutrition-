@@ -3,15 +3,28 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
 
+from django.utils.translation import ugettext as _
+
 from backend.models import Category
 
 
 class Post(models.Model):
+	DRAFT = 1
+	PUBLISH = 2
+	UNPUBLISH = 3
+
+	POST_STATUS = (
+		(DRAFT, _('Draft')),
+		(PUBLISH, _('Publish')),
+		(UNPUBLISH, _('Unpublish'))
+	)
+
 	title = models.CharField(max_length=250, unique=True)
 	summary = models.TextField()
 	body = RichTextField()
 	thumb = models.ImageField(default=None)
 	slug = models.SlugField(unique=True, max_length=150)
+	status = models.IntegerField(default=DRAFT, choices=POST_STATUS)
 
 	categories = models.ManyToManyField(Category, default=None, blank=True)
 
