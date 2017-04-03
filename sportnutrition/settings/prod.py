@@ -77,10 +77,10 @@ DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
 		'NAME': 'sportnutritionlt',
-		'USER': 'sportnutritionlt',
-		'PASSWORD': 'sp0rtnutr1t10n',
-		'HOST': 'sportnutritionlt.ckizfcg3uxmr.us-west-2.rds.amazonaws.com',
-		'PORT': '3306',
+		'USER': 'root',
+		'PASSWORD': 'casa13092007',
+		'HOST': '127.0.0.1',
+		'PORT': '',
 	}
 }
 
