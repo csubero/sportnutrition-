@@ -3,6 +3,7 @@ from django.forms import ModelForm, TextInput, Textarea, CheckboxSelectMultiple
 from ckeditor.widgets import CKEditorWidget
 
 from backend.models import Post
+from backend.utils.widgets import AdminImageWidget
 
 
 class PostForm(ModelForm):
@@ -15,6 +16,6 @@ class PostForm(ModelForm):
 			'title': TextInput(attrs={'class': 'form-control border-input'}),
 			'summary': Textarea(attrs={'class': 'form-control border-input', 'cols': 1}),
 			'body': CKEditorWidget(),
-			'thumb': AdminFileWidget(attrs={'class': 'form-control border-input'}),
+			'thumb': AdminImageWidget(attrs={'class': 'form-control border-input'}),
 			'categories': CheckboxSelectMultiple(),
 		}
