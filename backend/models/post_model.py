@@ -46,3 +46,10 @@ class Post(models.Model):
 				self.slug = '%s-%d' % (self.slug, x)
 
 		super(Post, self).save(*args, **kwargs)
+
+	def delete(self, *args, **kwargs):
+
+		if self.thumb is not None:
+			self.thumb.delete()
+
+		super(Post, self).delete(*args, **kwargs)

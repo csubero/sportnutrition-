@@ -25,6 +25,13 @@ class PostCreateView(CreateView):
 	def get_success_url(self):
 		return reverse('backend.post.index')
 
+	def get_context_data(self, **kwargs):
+		data = super(PostCreateView, self).get_context_data(**kwargs)
+
+		data['title_form'] = 'Add new Post'
+
+		return data
+
 
 class PostUpdateView(UpdateView):
 	model = Post
@@ -35,6 +42,13 @@ class PostUpdateView(UpdateView):
 
 	def get_success_url(self):
 		return reverse('backend.post.index')
+
+	def get_context_data(self, **kwargs):
+		data = super(PostUpdateView, self).get_context_data(**kwargs)
+
+		data['title_form'] = self.object.title.title()
+
+		return data
 
 
 class PostDeleteView(View):
