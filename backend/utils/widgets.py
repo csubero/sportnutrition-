@@ -43,7 +43,7 @@ class AdminImageWidget(AdminFileWidget):
 				print(miniature_url)
 
 				output.append(u' <div><a href="%s" target="_blank"><img src="%s" alt="%s" /></a></div> %s ' % \
-							  (miniature_url, miniature_url, miniature_url, _('Change:')))
+							  (image_url, miniature_url, miniature_url, _('Change:')))
 			except:
 				pass
 		output.append(super(AdminFileWidget, self).render(name, value, attrs))
