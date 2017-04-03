@@ -21,6 +21,8 @@
 				</div>
 				<div class="content">
 
+					{{ form.errors }}
+
 					<form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
 
 						{{ form.media }}
@@ -62,8 +64,10 @@
 							{% endfor %}
 						</div>
 
-						{{ form.errors }}
-
+						<div class="form-group">
+							{{ form.status.label_tag }}
+							{{ form.status }}
+						</div>
 
 						<a class="btn btn-danger btn-fill btn-wd" href="{% url 'backend.post.index' %}">Cancel</a>
 						<button type="submit" class="btn btn-info btn-fill btn-wd">Save Post</button>
