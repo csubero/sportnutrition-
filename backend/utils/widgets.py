@@ -40,8 +40,6 @@ class AdminImageWidget(AdminFileWidget):
 					except:
 						image.save(miniature_filename, image.format, quality=100)
 
-				print(miniature_url)
-
 				output.append(u' <div><a href="%s" target="_blank"><img src="%s" alt="%s" /></a></div>' % \
 							  (image_url, miniature_url, miniature_url))
 			except:

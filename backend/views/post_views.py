@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView
 
@@ -23,7 +23,7 @@ class PostCreateView(CreateView):
 	form_class = PostForm
 
 	def get_success_url(self):
-		return reverse('backend.post.index')
+		return reverse_lazy('backend.post.edit', kwargs={'pk': self.object.id})
 
 	def get_context_data(self, **kwargs):
 		data = super(PostCreateView, self).get_context_data(**kwargs)
