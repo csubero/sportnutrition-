@@ -21,8 +21,6 @@
 				</div>
 				<div class="content">
 
-					{{ form.errors }}
-
 					<form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
 
 						{{ form.media }}
@@ -87,20 +85,32 @@
 
         $('#post_tab').addClass('active');
 
-        {% if message_post %}
-
+        function show_notification(message, type, title) {
             $.notify(
                 {
-                    message: "The post has been saved successfully",
+                    title: title,
+                    message: message,
                 },
                 {
-                    type: 'success',
+                    type: type,
                     placement: {
                         from: 'top',
                         align: 'center'
                     }
                 }
             );
+        }
+
+        {% if message_post %}
+
+            show_notification('{{ message_post }}', 'success')
+
+        {% endif %}
+
+        {% if form.errors %}
+
+            show_notification('{{ form.errors }}', 'danger', 'Errors')
+
         {% endif %}
 
 	</script>

@@ -15,8 +15,8 @@ class Post(models.Model):
 
 	POST_STATUS = (
 		(DRAFT, _('Draft')),
-		(PUBLISH, _('Publish')),
-		(UNPUBLISH, _('Unpublish'))
+		(PUBLISH, _('Published')),
+		(UNPUBLISH, _('Unpublished'))
 	)
 
 	title = models.CharField(max_length=250, unique=True)
