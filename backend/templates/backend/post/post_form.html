@@ -21,8 +21,6 @@
 				</div>
 				<div class="content">
 
-					{{ form.errors }}
-
 					<form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
 
 						{{ form.media }}
@@ -41,7 +39,7 @@
 							{{ form.body.label_tag }}
 						</div>
 
-						<div class="form-group">
+						<div class="form-group table-responsive">
 							{{ form.body }}
 						</div>
 
@@ -86,6 +84,34 @@
         $('.nav li').removeClass('active');
 
         $('#post_tab').addClass('active');
+
+        function show_notification(message, type, title) {
+            $.notify(
+                {
+                    title: title,
+                    message: message,
+                },
+                {
+                    type: type,
+                    placement: {
+                        from: 'top',
+                        align: 'center'
+                    }
+                }
+            );
+        }
+
+        {% if message_post %}
+
+            show_notification('{{ message_post }}', 'success')
+
+        {% endif %}
+
+        {% if form.errors %}
+
+            show_notification('{{ form.errors }}', 'danger', 'Errors')
+
+        {% endif %}
 
 	</script>
 

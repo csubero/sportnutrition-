@@ -41,14 +41,28 @@ class PostUpdateView(UpdateView):
 	form_class = PostForm
 
 	def get_success_url(self):
-		return reverse('backend.post.index')
+		return reverse_lazy('backend.post.edit', kwargs={'pk': self.object.id})
 
 	def get_context_data(self, **kwargs):
 		data = super(PostUpdateView, self).get_context_data(**kwargs)
 
+		message_post = self.request.session.get('message_post')
+
+		if message_post is not None:
+			data['message_post'] = message_post
+
+			self.request.session['message_post'] = None
+
 		data['title_form'] = self.object.title.title()
 
 		return data
+
+	def form_valid(self, form):
+		form.save()
+
+		self.request.session['message_post'] = 'The post has been saved successfully'
+
+		return super(PostUpdateView, self).form_valid(form)
 
 
 class PostDeleteView(View):
