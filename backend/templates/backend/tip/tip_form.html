@@ -59,6 +59,11 @@
 {% block script_js %}
 
 	<script>
+
+        $('.nav li').removeClass('active');
+
+        $('#tip_tab').addClass('active');
+
         {% if message_tip %}
 
             show_notification('{{ message_tip }}', 'success')
