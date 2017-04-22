@@ -1,1 +1,57 @@
 {% extends 'backend/layout/template.html' %}
+
+
+{% block title %}
+
+	{{ title_form }}
+
+{% endblock %}
+
+{% block title_section %}
+
+	Tips
+
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">{{ title_form }}</h4>
+				</div>
+				<div class="content">
+					<form method="post">{% csrf_token %}
+						{{ form.media }}
+
+						<div class="form-group">
+							{{ form.title.label_tag }}
+							{{ form.title }}
+							<span class="ui-state-error-text">{{ form.title.errors }}</span>
+						</div>
+
+						<div class="form-group">
+							{{ form.content.label_tag }}
+						</div>
+
+						<div class="form-group table-responsive">
+							{{ form.content }}
+						</div>
+
+						<div class="form-group">
+							<label class="checkbox checkbox-azure">
+								{{ form.active.label }} {{ form.active }}
+							</label>
+						</div>
+
+						<a class="btn btn-danger btn-fill btn-wd" href="{% url 'backend.tip.index' %}">Cancel</a>
+						<button type="submit" class="btn btn-info btn-fill btn-wd">Save Tip</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
