@@ -1,0 +1,90 @@
+{% extends 'backend/layout/template.html' %}
+
+
+{% block title %}
+
+	Tips
+
+{% endblock %}
+
+{% block title_section %}
+
+	Tips
+
+{% endblock %}
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="header">
+					<h4 class="title pull-left">Tips</h4>
+					<a href="{% url 'backend.tip.create' %}" class="pull-right text-success"><i class="ti ti-file"></i>
+						New Tip</a>
+				</div>
+				<div class="content table-responsive">
+					<table class="table table-striped">
+						<thead>
+						<tr>
+							<td class="col-md-8">
+								Title
+							</td>
+							<td class="col-md-3">
+								Slug
+							</td>
+							<td class="col-md-1">
+							</td>
+						</tr>
+						</thead>
+						<tbody>
+						{% for tip in tips_list %}
+							<tr>
+								<td>{{ tip.title|capfirst }}</td>
+								<td>{{ tip.slug }}</td>
+								<td class="text-center"><a href="{% url 'backend.tip.edit' tip.id %}" title="Edit"><i
+										class="ti ti-pencil-alt"></i></a>
+									<a href="#" title="Delete" class="text-danger" data-toggle="modal"
+									   data-target="#delete_tip_modal"
+									   onclick="delete_tip({{ tip.id }})"><i class="ti-trash"></i></a>
+								</td>
+							</tr>
+
+						{% empty %}
+
+							<tr>
+								<td colspan="4" class="text-center">No tips to show</td>
+							</tr>
+
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+
+{% block modals %}
+
+	{% include 'backend/tip/tip_modal_confirm_delete.html' %}
+
+{% endblock %}
+
+
+{% block script_js %}
+
+	<script>
+        $('.nav li').removeClass('active');
+
+        $('#tip_tab').addClass('active');
+
+        function delete_tip(tip_id) {
+            $("#tip_id").val(tip_id);
+        }
+
+	</script>
+
+{% endblock %}

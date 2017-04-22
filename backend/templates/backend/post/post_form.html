@@ -85,22 +85,6 @@
 
         $('#post_tab').addClass('active');
 
-        function show_notification(message, type, title) {
-            $.notify(
-                {
-                    title: title,
-                    message: message,
-                },
-                {
-                    type: type,
-                    placement: {
-                        from: 'top',
-                        align: 'center'
-                    }
-                }
-            );
-        }
-
         {% if message_post %}
 
             show_notification('{{ message_post }}', 'success')
