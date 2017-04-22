@@ -45,8 +45,8 @@
 								<td class="text-center"><a href="{% url 'backend.tip.edit' tip.id %}" title="Edit"><i
 										class="ti ti-pencil-alt"></i></a>
 									<a href="#" title="Delete" class="text-danger" data-toggle="modal"
-									   data-target="#delete_post_modal"
-									   onclick=""><i class="ti-trash"></i></a>
+									   data-target="#delete_tip_modal"
+									   onclick="delete_tip({{ tip.id }})"><i class="ti-trash"></i></a>
 								</td>
 							</tr>
 
@@ -66,6 +66,14 @@
 
 {% endblock %}
 
+
+{% block modals %}
+
+	{% include 'backend/tip/tip_modal_confirm_delete.html' %}
+
+{% endblock %}
+
+
 {% block script_js %}
 
 	<script>
@@ -73,9 +81,9 @@
 
         $('#tip_tab').addClass('active');
 
-        {% comment %}function delete_post(post_id) {
-            $("#post_id").val(post_id);
-        }{% endcomment %}
+        function delete_tip(tip_id) {
+            $("#tip_id").val(tip_id);
+        }
 
 	</script>
 

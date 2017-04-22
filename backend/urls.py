@@ -3,7 +3,7 @@ from django.conf.urls import url
 from django.conf.urls.static import static
 
 from backend.views import IndexView, PostListView, CategoryIndexView, CategoryDeleteView, PostCreateView, \
-	PostUpdateView, PostDeleteView, TipListView, TipCreateView, TipUpdateView
+	PostUpdateView, PostDeleteView, TipListView, TipCreateView, TipUpdateView, TipDeleteView
 
 urlpatterns = [
 	url(r'^$', IndexView.as_view(), name='backend.index'),
@@ -22,6 +22,7 @@ urlpatterns = [
 	url(r'^tip/$', TipListView.as_view(), name='backend.tip.index'),
 	url(r'^tip/create/$', TipCreateView.as_view(), name='backend.tip.create'),
 	url(r'^tip/edit/(?P<pk>[0-9]+)/$', TipUpdateView.as_view(), name='backend.tip.edit'),
+	url(r'^tip/delete/$', TipDeleteView.as_view(), name='backend.tip.delete'),
 ]
 
 if settings.DEBUG:

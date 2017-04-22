@@ -15,6 +15,19 @@ class Tip(models.Model):
 	def __str__(self):
 		return self.title.title()
 
+	@staticmethod
+	def get_by_id(tip_id):
+
+		try:
+
+			tip = Tip.objects.get(pk=tip_id)
+
+		except Tip.DoesNotExist:
+
+			tip = None
+
+		return tip
+
 	def save(self, *args, **kwargs):
 
 		self.title = self.title.lower()

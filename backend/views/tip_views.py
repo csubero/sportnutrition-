@@ -1,4 +1,6 @@
-from django.urls import reverse_lazy
+from django.shortcuts import redirect
+from django.urls import reverse_lazy, reverse
+from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView
 
 from backend.forms.tip_form import TipForm
@@ -63,3 +65,15 @@ class TipUpdateView(UpdateView):
 		self.request.session['message_tip'] = 'The tip has been saved successfully'
 
 		return super(TipUpdateView, self).form_valid(form)
+
+
+class TipDeleteView(View):
+	def post(self, request):
+		tip_id = request.POST.get('tip_id')
+
+		tip_delete = Tip.get_by_id(tip_id)
+
+		if tip_delete is not None:
+			tip_delete.delete()
+
+		return redirect(reverse('backend.tip.index'))

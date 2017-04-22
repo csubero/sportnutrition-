@@ -1,0 +1,26 @@
+<div class="modal fade" id="delete_tip_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	 aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form action="{% url 'backend.tip.delete' %}" method="post">{% csrf_token %}
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Delete Tip</h4>
+				</div>
+				<div class="modal-body text-center">
+					Are you sure to delete this tip?
+					<input type="hidden" id="tip_id" name="tip_id" value="">
+				</div>
+				<div class="modal-footer">
+					<div class="left-side">
+						<button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Cancel</button>
+					</div>
+					<div class="divider"></div>
+					<div class="right-side">
+						<button type="submit" class="btn btn-danger btn-simple">Delete</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
