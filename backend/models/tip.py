@@ -2,11 +2,15 @@ import itertools
 from django.db import models
 from django.template.defaultfilters import slugify
 
+from backend.models import Gallery
+
 
 class Tip(models.Model):
 	title = models.CharField(max_length=150)
 	content = models.TextField()
 	slug = models.SlugField(unique=True, max_length=150)
+
+	galleries = models.ManyToManyField(Gallery)
 
 	active = models.BooleanField(default=True)
 	created_at = models.DateTimeField(auto_now_add=True)
