@@ -55,3 +55,21 @@
 	</div>
 
 {% endblock %}
+
+{% block script_js %}
+
+	<script>
+        {% if message_tip %}
+
+            show_notification('{{ message_tip }}', 'success')
+
+        {% endif %}
+
+        {% if form.errors %}
+
+            show_notification('{{ form.errors }}', 'danger', 'Errors')
+
+        {% endif %}
+	</script>
+
+{% endblock %}

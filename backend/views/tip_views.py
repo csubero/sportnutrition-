@@ -23,7 +23,7 @@ class TipCreateView(CreateView):
 	template_name = 'backend/tip/tip_form.html'
 
 	def get_success_url(self):
-		return reverse_lazy('backend.tip.index')
+		return reverse_lazy('backend.tip.edit', kwargs={'pk': self.object.pk})
 
 	def get_context_data(self, **kwargs):
 		data = super(TipCreateView, self).get_context_data(**kwargs)
@@ -40,13 +40,26 @@ class TipUpdateView(UpdateView):
 
 	template_name = 'backend/tip/tip_form.html'
 
-
 	def get_success_url(self):
-		return reverse_lazy('backend.tip.index')
+		return reverse_lazy('backend.tip.edit', kwargs={'pk': self.object.pk})
 
 	def get_context_data(self, **kwargs):
 		data = super(TipUpdateView, self).get_context_data(**kwargs)
 
 		data['title_form'] = 'Update {0}'.format(self.object.title.title())
 
+		message_tip = self.request.session.get('message_tip')
+
+		if message_tip is not None:
+			data['message_tip'] = message_tip
+
+			self.request.session['message_tip'] = None
+
 		return data
+
+	def form_valid(self, form):
+		form.save()
+
+		self.request.session['message_tip'] = 'The tip has been saved successfully'
+
+		return super(TipUpdateView, self).form_valid(form)
