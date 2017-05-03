@@ -1,3 +1,4 @@
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.contrib.admin.widgets import AdminFileWidget
 from django.forms import ModelForm, TextInput, Textarea, CheckboxSelectMultiple, Select
 from ckeditor.widgets import CKEditorWidget
@@ -15,7 +16,7 @@ class PostForm(ModelForm):
 		widgets = {
 			'title': TextInput(attrs={'class': 'form-control border-input'}),
 			'summary': Textarea(attrs={'class': 'form-control border-input', 'cols': 1}),
-			'body': CKEditorWidget(),
+			'body': CKEditorUploadingWidget(),
 			'thumb': AdminImageWidget(attrs={'class': 'form-control border-input'}),
 			'categories': CheckboxSelectMultiple(),
 			'status': Select(attrs={'class': 'form-control border-input'})

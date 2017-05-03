@@ -1,5 +1,9 @@
 {% extends 'backend/layout/template.html' %}
 
+{% block extrahead %}
+	<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+	{{ block.super }}
+{% endblock %}
 
 {% block title %}
 
@@ -20,8 +24,18 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="header">
-					<h4 class="title">{{ title_form }}</h4>
+					<h4 class="title pull-left">{{ title_form }}</h4>
+
+					{% if tip %}
+
+						<a class="btn btn-success btn-xs pull-right">Add a Gallery</a>
+
+					{% endif %}
+
 				</div>
+
+				<div class="clearfix"></div>
+
 				<div class="content">
 					<form method="post">{% csrf_token %}
 						{{ form.media }}

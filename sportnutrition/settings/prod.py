@@ -38,6 +38,7 @@ INSTALLED_APPS = [
 	'backend',
 	'frontend',
 	'ckeditor',
+	'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,5 @@ CKEDITOR_CONFIGS = {
 	}
 }
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = "articles/"

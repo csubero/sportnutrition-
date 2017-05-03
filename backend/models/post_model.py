@@ -21,8 +21,8 @@ class Post(models.Model):
 
 	title = models.CharField(max_length=250, unique=True)
 	summary = models.TextField()
-	body = RichTextField()
-	thumb = models.ImageField(default=None)
+	body = models.TextField()
+	thumb = models.ImageField(default=None, upload_to='thumbs/%Y/%m/%d')
 	slug = models.SlugField(unique=True, max_length=150)
 	status = models.IntegerField(default=DRAFT, choices=POST_STATUS)
 

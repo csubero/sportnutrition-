@@ -42,6 +42,8 @@ class TipUpdateView(UpdateView):
 
 	template_name = 'backend/tip/tip_form.html'
 
+	context_object_name = 'tip'
+
 	def get_success_url(self):
 		return reverse_lazy('backend.tip.edit', kwargs={'pk': self.object.pk})
 
