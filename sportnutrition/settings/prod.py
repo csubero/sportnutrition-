@@ -129,14 +129,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 # CKEDITOR CONFIG
 CKEDITOR_CONFIGS = {
 	'default': {
-		'toolbar': 'Custom',
-		'toolbar_Custom': [
-			['Bold', 'Italic', 'Underline'],
-			['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter',
-			 'JustifyRight', 'JustifyBlock'],
-			['Link', 'Unlink'],
-			['RemoveFormat', 'Source']
-		]
+		'toolbar': 'Full',
 	}
 }
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
