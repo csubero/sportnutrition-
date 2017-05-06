@@ -9,19 +9,17 @@
 		   data-url="{% url 'backend.tip.upload_image' %}"
 		   data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}", "tip_id": "{{ tip.id }}"}'>
 	<br/><br/>
-	<table id="gallery" class="table table-bordered">
-		<thead>
-		<tr>
-			<th>Image</th>
-		</tr>
-		</thead>
-		<tbody>
+
+	<div id="gallery" class="row">
+
 		{% for image in tip.images.all %}
-			<tr>
-				<td><a href="{{ image.file.url }}">{{ image.file.name }}</a></td>
-			</tr>
+
+			<div class="col-xs-6  col-sm-3 col-md-2 pull-left">
+				<img src="{{ image.file.url }}" class="img-thumbnail img-responsive">
+			</div>
+
 		{% endfor %}
-		</tbody>
-	</table>
+
+	</div>
 
 </div>

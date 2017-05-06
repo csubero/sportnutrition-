@@ -109,8 +109,8 @@
                 dataType: 'json',
                 done: function (e, data) {  /* 3. PROCESS THE RESPONSE FROM THE SERVER */
                     if (data.result.is_valid) {
-                        $("#gallery tbody").prepend(
-                            "<tr><td><a href='" + data.result.url + "'>" + data.result.name + "</a></td></tr>"
+                        $("#gallery").append(
+                            "<div class='col-xs-6  col-sm-3 col-md-2'><img src='" + data.result.url + "' class='img-thumbnail img-responsive'></div>"
                         )
                     }
                 }
