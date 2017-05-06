@@ -1,8 +1,10 @@
+from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView
 
+from backend.forms import ImageForm
 from backend.forms.tip_form import TipForm
 from backend.models import Tip
 
@@ -79,3 +81,28 @@ class TipDeleteView(View):
 			tip_delete.delete()
 
 		return redirect(reverse('backend.tip.index'))
+
+
+class TipUploadImageView(View):
+	def post(self, request):
+
+		tip_id = request.POST.get('tip_id')
+
+		tip = Tip.get_by_id(tip_id)
+
+		if tip is not None:
+
+			form = ImageForm(request.POST, request.FILES)
+
+			if form.is_valid():
+
+				image = form.save()
+
+				tip.images.add(image)
+
+				data = {'is_valid': True, 'name': image.file.name, 'url': image.file.url}
+
+			else:
+				data = {'is_valid': False}
+
+			return JsonResponse(data)

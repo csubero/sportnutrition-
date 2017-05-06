@@ -5,10 +5,8 @@ from backend.models.gallery import Gallery
 
 class Image(models.Model):
 	title = models.CharField(max_length=150, null=True, blank=True)
-	image = models.ImageField()
+	file = models.ImageField(upload_to='images/%Y/%m/%d')
 	order = models.IntegerField(default=0)
-
-	gallery = models.ForeignKey(Gallery, default=None, null=True, related_name='images')
 
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)

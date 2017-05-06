@@ -1,0 +1,27 @@
+<div class="form-group">
+
+	<button type="button" class="btn btn-success btn-fill btn-wd js-upload-photos">
+		{% comment %}<span class="glyphicon-cloud-upload"></span>{% endcomment %} Upload images
+	</button>
+
+	<input id="fileupload" type="file" name="file" multiple
+		   style="display: none;"
+		   data-url="{% url 'backend.tip.upload_image' %}"
+		   data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}", "tip_id": "{{ tip.id }}"}'>
+	<br/><br/>
+	<table id="gallery" class="table table-bordered">
+		<thead>
+		<tr>
+			<th>Image</th>
+		</tr>
+		</thead>
+		<tbody>
+		{% for image in tip.images.all %}
+			<tr>
+				<td><a href="{{ image.file.url }}">{{ image.file.name }}</a></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+</div>
