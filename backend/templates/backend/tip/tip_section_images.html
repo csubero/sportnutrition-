@@ -14,7 +14,7 @@
 
 		{% for image in tip.images.all %}
 
-			<div class="col-xs-6  col-sm-3 col-md-2 pull-left">
+			<div class="col-xs-6  col-sm-3 col-md-3 pull-left">
 				<img src="{{ image.file.url }}" class="img-thumbnail img-responsive">
 			</div>
 
@@ -23,3 +23,21 @@
 	</div>
 
 </div>
+
+
+{#Progress div #}
+
+<div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Uploading...</h4>
+			</div>
+			<div class="modal-body">
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>s
