@@ -1,5 +1,7 @@
 {% extends 'backend/layout/template.html' %}
 
+{% load static %}
+
 {% block extrahead %}
 	<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
 	{{ block.super }}
@@ -25,13 +27,6 @@
 			<div class="card">
 				<div class="header">
 					<h4 class="title pull-left">{{ title_form }}</h4>
-
-					{% if tip %}
-
-						<a class="btn btn-success btn-xs pull-right">Add a Gallery</a>
-
-					{% endif %}
-
 				</div>
 
 				<div class="clearfix"></div>
@@ -60,9 +55,16 @@
 							</label>
 						</div>
 
+						{% if tip %}
+
+							{% include 'backend/tip/tip_section_images.html' %}
+
+						{% endif %}
+
 						<a class="btn btn-danger btn-fill btn-wd" href="{% url 'backend.tip.index' %}">Cancel</a>
 						<button type="submit" class="btn btn-info btn-fill btn-wd">Save Tip</button>
 					</form>
+
 				</div>
 			</div>
 		</div>
@@ -71,6 +73,10 @@
 {% endblock %}
 
 {% block script_js %}
+
+	<script src="{% static 'backend/assets/js/jquery.ui.widget.js' %}"></script>
+	<script src="{% static 'backend/assets/js/jquery.iframe-transport.js' %}"></script>
+	<script src="{% static 'backend/assets/js/jquery.fileupload.js' %}"></script>
 
 	<script>
 
@@ -89,6 +95,41 @@
             show_notification('{{ form.errors }}', 'danger', 'Errors')
 
         {% endif %}
+
+
+
+        $(function () {
+			/* 1. OPEN THE FILE EXPLORER WINDOW */
+            $(".js-upload-photos").click(function () {
+                $("#fileupload").click();
+            });
+
+            $("#fileupload").fileupload({
+                dataType: 'json',
+                sequentialUploads: true, /* 1. SEND THE FILES ONE BY ONE */
+                start: function (e) {  /* 2. WHEN THE UPLOADING PROCESS STARTS, SHOW THE MODAL */
+                    $("#modal-progress").modal("show");
+                },
+                stop: function (e) {  /* 3. WHEN THE UPLOADING PROCESS FINALIZE, HIDE THE MODAL */
+                    $("#modal-progress").modal("hide");
+                },
+                progressall: function (e, data) {  /* 4. UPDATE THE PROGRESS BAR */
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    var strProgress = progress + "%";
+                    $(".progress-bar").css({"width": strProgress});
+                    $(".progress-bar").text(strProgress);
+                },
+                done: function (e, data) {
+                    if (data.result.is_valid) {
+                        $("#gallery").append(
+                            "<div class='col-xs-6  col-sm-3 col-md-2'><img src='" + data.result.url + "' class='img-thumbnail img-responsive'></div>"
+                        )
+                    }
+                }
+            });
+
+        });
+
 	</script>
 
 {% endblock %}
