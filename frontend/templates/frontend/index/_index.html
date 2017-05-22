@@ -86,7 +86,7 @@
 
 				<!-- Featured Box -->
 				<div class="featured-box">
-					<div class="circle"><i class="icon-wrench"></i><span></span></div>
+					<div class="circle"><i class="icon-ambulance"></i><span></span></div>
 					<div class="featured-desc">
 						<h3>Flexible</h3>
 						<p>Nam condimentum nec mi aliquam accumsan phasellus nulla lorem gravida.</p>
@@ -133,7 +133,7 @@
 
 		<!-- Headline -->
 		<div class="sixteen columns">
-			<h3 class="headline">Recent Work</h3>
+			<h3 class="headline">Recent Posts</h3>
 			<span class="line" style="margin-bottom:0;"></span>
 		</div>
 
@@ -153,194 +153,35 @@
 
 					<ul>
 
-						<!-- Item -->
-						<li>
-							<div class="portfolio-item media">
-								<figure>
-									<div class="mediaholder">
-										<a href="images/portfolio/portfolio-01a.jpg" class="mfp-gallery"
-										   title="Green Leaves">
-											<img alt="" src="{% static 'frontend/images/portfolio/portfolio-01.jpg' %}"/>
-											<div class="hovercover">
-												<div class="hovericon"><i class="hoverzoom"></i></div>
-											</div>
-										</a>
-									</div>
+						{% for post in recent_posts %}
 
-									<a href="single-project-half.html">
-										<figcaption class="item-description">
-											<h5>Green Leaves</h5>
-											<span>Photography</span>
-										</figcaption>
-									</a>
+							<!-- Item -->
+							<li>
+								<div class="portfolio-item media">
+									<figure>
+										<div class="mediaholder">
+											<a href="images/portfolio/portfolio-01a.jpg" class="mfp-gallery"
+											   title="{{ post.title|title }}">
+												<img alt=""
+													 src="{% static 'frontend/images/portfolio/portfolio-01.jpg' %}"/>
+												<div class="hovercover">
+													<div class="hovericon"><i class="hoverzoom"></i></div>
+												</div>
+											</a>
+										</div>
 
-								</figure>
-							</div>
-						</li>
-
-						<!-- Item -->
-						<li>
-							<div class="portfolio-item media">
-								<figure>
-									<div class="mediaholder">
-										<a href="images/portfolio/portfolio-02a.jpg" class="mfp-gallery"
-										   title="Surfing The Web">
-											<img alt="" src="{% static 'frontend/images/portfolio/portfolio-02.jpg' %}"/>
-											<div class="hovercover">
-												<div class="hovericon"><i class="hoverzoom"></i></div>
-											</div>
-										</a>
-									</div>
-
-									<a href="single-project-wide.html">
-										<figcaption class="item-description">
-											<h5>Surfing The Web</h5>
-											<span>Technology</span>
-										</figcaption>
-									</a>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Item -->
-						<li>
-							<div class="portfolio-item media">
-								<figure>
-									<div class="mediaholder">
 										<a href="single-project-half.html">
-											<img alt="" src="{% static 'frontend/images/portfolio/portfolio-03.jpg' %}"/>
-											<div class="hovercover">
-												<div class="hovericon"><i class="hoverlink"></i></div>
-											</div>
+											<figcaption class="item-description">
+												<h5>{{ post.title|title }}</h5>
+												{% comment %}<span>Photography</span>{% endcomment %}
+											</figcaption>
 										</a>
-									</div>
 
-									<a href="single-project-half.html">
-										<figcaption class="item-description">
-											<h5>Orange Wall</h5>
-											<span>Interior</span>
-										</figcaption>
-									</a>
-								</figure>
-							</div>
-						</li>
+									</figure>
+								</div>
+							</li>
 
-						<!-- Item -->
-						<li>
-							<div class="portfolio-item media">
-								<figure>
-									<div class="mediaholder">
-										<a href="single-project-wide.html">
-											<img alt="" src="{% static 'frontend/images/portfolio/portfolio-04.jpg' %}"/>
-											<div class="hovercover">
-												<div class="hovericon"><i class="hoverlink"></i></div>
-											</div>
-										</a>
-									</div>
-
-									<a href="single-project-wide.html">
-										<figcaption class="item-description">
-											<h5>Modern Skyscraper</h5>
-											<span>Architecture</span>
-										</figcaption>
-									</a>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Item -->
-						<li>
-							<div class="portfolio-item media">
-								<figure>
-									<div class="mediaholder">
-										<a href="images/portfolio/portfolio-05a.jpg" class="mfp-gallery"
-										   title="Digital Painting">
-											<img alt="" src="{% static 'frontend/images/portfolio/portfolio-05.jpg' %}"/>
-											<div class="hovercover">
-												<div class="hovericon"><i class="hoverzoom"></i></div>
-											</div>
-										</a>
-									</div>
-
-									<a href="single-project-wide.html">
-										<figcaption class="item-description">
-											<h5>Digital Painting</h5>
-											<span>Technology</span>
-										</figcaption>
-									</a>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Item -->
-						<li>
-							<div class="portfolio-item media">
-								<figure>
-									<div class="mediaholder">
-										<a href="single-project-wide.html">
-											<img alt="" src="{% static 'frontend/images/portfolio/portfolio-06.jpg' %}"/>
-											<div class="hovercover">
-												<div class="hovericon"><i class="hoverlink"></i></div>
-											</div>
-										</a>
-									</div>
-
-									<a href="single-project-wide.html">
-										<figcaption class="item-description">
-											<h5>Music Concert</h5>
-											<span>Architecture</span>
-										</figcaption>
-									</a>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Item -->
-						<li>
-							<div class="portfolio-item media">
-								<figure>
-									<div class="mediaholder">
-										<a href="single-project-half.html">
-											<img alt="" src="{% static 'frontend/images/portfolio/portfolio-07.jpg' %}"/>
-											<div class="hovercover">
-												<div class="hovericon"><i class="hoverlink"></i></div>
-											</div>
-										</a>
-									</div>
-
-									<a href="single-project-half.html">
-										<figcaption class="item-description">
-											<h5>Beautiful Flowers</h5>
-											<span>Photography</span>
-										</figcaption>
-									</a>
-								</figure>
-							</div>
-						</li>
-
-						<!-- Item -->
-						<li>
-							<div class="portfolio-item media">
-								<figure>
-									<div class="mediaholder">
-										<a href="images/portfolio/portfolio-08a.jpg" class="mfp-gallery"
-										   title="Mountain Biking">
-											<img alt="" src="{% static 'frontend/images/portfolio/portfolio-08.jpg' %}"/>
-											<div class="hovercover">
-												<div class="hovericon"><i class="hoverzoom"></i></div>
-											</div>
-										</a>
-									</div>
-
-									<a href="single-project-wide.html">
-										<figcaption class="item-description">
-											<h5>Mountain Biking</h5>
-											<span>Photography</span>
-										</figcaption>
-									</a>
-								</figure>
-							</div>
-						</li>
+						{% endfor %}
 
 					</ul>
 					<div class="clearfix"></div>
