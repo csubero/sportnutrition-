@@ -1,0 +1,241 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+    ================================================== -->
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %} - SportNutrition LT</title>
+
+	<!-- Mobile Specific Metas
+    ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+	<link rel="stylesheet" href="{% static 'frontend/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'frontend/css/colors/green.css' %}" id="colors">
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+	<!-- Java Script
+    ================================================== -->
+	<script src="{% static 'frontend/scripts/jquery.min.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.themepunch.plugins.min.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.themepunch.revolution.min.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.themepunch.showbizpro.min.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.easing.min.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.tooltips.min.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.superfish.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.twitter.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.flexslider.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.jpanelmenu.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.contact.js' %}"></script>
+	<script src="{% static 'frontend/scripts/jquery.isotope.min.js' %}"></script>
+	<script src="{% static 'frontend/scripts/custom.js' %}"></script>
+
+</head>
+<body>
+
+
+<!-- Header
+================================================== -->
+<header id="header">
+
+	<!-- Container -->
+	<div class="container">
+
+		<!-- Logo / Mobile Menu -->
+		<div class="three columns">
+
+			<div id="mobile-navigation">
+				<form method="GET" id="menu-search" action="#">
+					<input type="text" placeholder="Start Typing..."/>
+				</form>
+				<a href="#menu" class="menu-trigger"><i class="icon-reorder"></i></a>
+				<span class="search-trigger"><i class="icon-search"></i></span>
+			</div>
+
+			<div id="logo">
+				<h1><a href="index.html"><img src="{% static 'frontend/images/logo.png' %}"
+											  alt="Sport Nutrition LT"/></a></h1>
+			</div>
+		</div>
+
+
+		<!-- Navigation
+        ================================================== -->
+		<div class="thirteen columns">
+
+			<nav id="navigation" class="menu">
+				<ul id="responsive">
+
+					<li><a href="index.html" id="current">Home</a></li>
+
+					<li><a href="#">Shortcodes</a>
+						<ul>
+							<li><a href="elements.html">Elements</a></li>
+							<li><a href="typography.html">Typography</a></li>
+							<li><a href="pricing-tables.html">Pricing Tables</a></li>
+							<li><a href="icons.html">Icons</a></li>
+						</ul>
+					</li>
+
+					<li><a href="#">Pages</a>
+						<ul>
+							<li><a href="about.html">About</a></li>
+							<li><a href="services.html">Services</a></li>
+							<li><a href="faq.html">FAQ</a></li>
+							<li><a href="sidebar-right.html">Right Sidebar</a></li>
+							<li><a href="sidebar-left.html">Left Sidebar</a></li>
+							<li><a href="404-page.html">404 Page</a></li>
+						</ul>
+					</li>
+
+					<li><a href="#">Portfolio</a>
+						<ul>
+							<li><a href="portfolio-3-columns.html">3 Columns</a></li>
+							<li><a href="portfolio-4-columns.html">4 Columns</a></li>
+							<li><a href="single-project-half.html">Single Project Half</a></li>
+							<li><a href="single-project-wide.html">Single Project Wide</a></li>
+						</ul>
+					</li>
+
+					<li><a href="#">Blog</a>
+						<ul>
+							<li><a href="blog-large-image.html">Large Image</a></li>
+							<li><a href="blog-medium-image.html">Medium Image</a></li>
+							<li><a href="blog-post.html">Single Post</a></li>
+						</ul>
+					</li>
+
+					<li><a href="contact.html">Contact</a></li>
+
+					<!-- Search Form -->
+					<li class="search-container">
+						<div id="search-form">
+							<form method="get" action="#">
+								<input type="text" class="search-text-box"/>
+							</form>
+						</div>
+					</li>
+
+				</ul>
+			</nav>
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</header>
+<!-- Header / End -->
+
+
+<!-- Content Wrapper / Start -->
+<div id="content-wrapper">
+
+	{% block content  %}{% endblock %}
+
+</div>
+<!-- Content Wrapper / End -->
+
+
+<!-- Footer
+================================================== -->
+<div id="footer">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="four columns">
+			<h3>About</h3>
+			<p style="margin:0;">Donec consectetur diam ac nibh auctor ultricies. Integer mauris lacus, consequat in
+				luctus id, semper sed felis. Cum sociis natoque penatibus et magnis.</p>
+		</div>
+
+		<div class="four columns">
+			<h3>Twitter</h3>
+
+			<ul id="twitter"></ul>
+			<script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    $.getJSON('twitter.php?url=' + encodeURIComponent('statuses/user_timeline.json?screen_name=Vasterad&count=1'), function (tweets) {
+                        $("#twitter").html(tz_format_twitter(tweets));
+                    });
+                });
+			</script>
+			<div class="clearfix"></div>
+
+			<a href="https://twitter.com/Vasterad" class="twitter-follow-button" data-show-count="false"
+			   data-dnt="true">Follow @Vasterad</a>
+			<script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + '://platform.twitter.com/widgets.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, 'script', 'twitter-wjs');</script>
+
+		</div>
+
+		<div class="four columns">
+			<h3>Get In Touch</h3>
+			<ul class="get-in-touch">
+				<li><i class="icon-map-marker"></i>
+					<p><strong>Address:</strong> 120 Seward Street, <br/>Oklahoma City, USA</p></li>
+				<li><i class="icon-user"></i>
+					<p><strong>Phone:</strong> +48 880 440 140</p></li>
+				<li><i class="icon-envelope-alt"></i>
+					<p><strong>Email:</strong> <a href="#">mail@example.com</a></p></li>
+			</ul>
+		</div>
+
+		<div class="four columns">
+			<h3>Newsletter</h3>
+			<p>Join our mailing list to stay up to date and get notices about our new releases!</p>
+
+			<form action="#" method="get">
+				<button class="newsletter-btn" type="submit">Join</button>
+				<input class="newsletter" type="text" onblur="if(this.value=='')this.value='mail@example.com';"
+					   onfocus="if(this.value=='mail@example.com')this.value='';" value="mail@example.com"/>
+			</form>
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer / End -->
+
+<!-- Footer Bottom / Start -->
+<div id="footer-bottom">
+
+	<!-- Container -->
+	<div class="container">
+
+		<div class="eight columns">© Copyright 2013 by <a href="{% url 'frontend.index.index' %}">Sport Nutrition LT</a>. All Rights Reserved.</div>
+		<div class="eight columns">
+			<ul class="social-icons-footer">
+				<li><a href="#" class="tooltip top" title="Twitter"><i class="icon-twitter"></i></a></li>
+				<li><a href="#" class="tooltip top" title="Facebook"><i class="icon-facebook"></i></a></li>
+				<li><a href="#" class="tooltip top" title="LinkedIn"><i class="icon-linkedin-rect"></i></a></li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- Container / End -->
+
+</div>
+<!-- Footer Bottom / Start -->
+
+</body>
+</html>
