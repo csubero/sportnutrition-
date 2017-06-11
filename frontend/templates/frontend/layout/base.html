@@ -64,7 +64,7 @@
 			</div>
 
 			<div id="logo">
-				<h1><a href="index.html"><img src="{% static 'frontend/images/logo.png' %}"
+				<h1><a href="{% url 'frontend.index.index' %}"><img src="{% static 'frontend/images/logo.png' %}"
 											  alt="Sport Nutrition LT"/></a></h1>
 			</div>
 		</div>
@@ -144,6 +144,8 @@
 
 <!-- Content Wrapper / Start -->
 <div id="content-wrapper">
+
+	{% block title_bar %}{% endblock %}
 
 	{% block content  %}{% endblock %}
 

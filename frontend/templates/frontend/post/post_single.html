@@ -1,0 +1,78 @@
+{% extends 'frontend/layout/base.html' %}
+
+{% block title %}
+
+	{{ post }}
+
+{% endblock %}
+
+{% block title_bar %}
+	<section id="titlebar">
+		<!-- Container -->
+		<div class="container">
+
+			<div class="eight columns">
+				<h2>Post</h2>
+			</div>
+
+			<div class="eight columns">
+				<nav id="breadcrumbs">
+					<ul>
+						<li>You are here:</li>
+						<li><a href="{% url 'frontend.index.index' %}">Home</a></li>
+						<li>Posts</li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+		<!-- Container / End -->
+	</section>
+{% endblock %}
+
+{% block content %}
+
+	<div class="container">
+		<div class="twelve alt columns">
+
+			<!-- Post -->
+			<article class="post" style="margin: 0; border: 0;">
+
+				{% if post.thumb %}
+					<figure class="post-img media">
+						<div class="mediaholder">
+							<a class="mfp-image" title="Touchpad Graphics Tablet" href="{{ post.thumb.url }}">
+								<img src="{{ post.thumb.url }}" alt=""/>
+								<div class="hovercover">
+									<div class="hovericon"><i class="hoverzoom"></i></div>
+								</div>
+							</a>
+						</div>
+					</figure>
+				{% endif %}
+
+				<div class="post-format">
+					<div class="circle"><i class="icon-pencil"></i><span></span></div>
+				</div>
+
+				<section class="post-content">
+
+					<header class="meta">
+						<h2><a href="#">{{ post }}</a></h2>
+						<ul>
+							<li>By <a href="#">Charlie Smith</a> - {{ post.created_at }}</li>
+							<li><a href="#">Technology</a>, <a href="#">Painting</a></li>
+							<li><a href="#">2 Comments</a></li>
+						</ul>
+					</header>
+
+					{{ post.body|safe }}
+
+				</section>
+				<div class="clearfix"></div>
+
+			</article>
+
+		</div>
+
+{% endblock %}
