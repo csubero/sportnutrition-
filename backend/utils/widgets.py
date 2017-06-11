@@ -40,8 +40,9 @@ class AdminImageWidget(AdminFileWidget):
 					except:
 						image.save(miniature_filename, image.format, quality=100)
 
-				output.append(u' <div><a href="%s" target="_blank"><img src="%s" alt="%s" /></a></div>' % \
-							  (image_url, miniature_url, miniature_url))
+				output.append(
+					u' <div class="col-md-2"><a href="%s" target="_blank"><img class="img-thumbnail img-responsive" src="%s" alt="%s" /></a></div>' % \
+					(image_url, miniature_url, miniature_url))
 			except:
 				pass
 		output.append(super(AdminFileWidget, self).render(name, value, attrs))
