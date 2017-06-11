@@ -77,9 +77,13 @@
 			<nav id="navigation" class="menu">
 				<ul id="responsive">
 
-					<li><a href="index.html" id="current">Home</a></li>
+					<li><a href="{% url 'frontend.index.index' %}" >Home</a></li>
 
-					<li><a href="#">Shortcodes</a>
+					<li><a href="{% url 'frontend.index.index' %}" >Post</a></li>
+
+					<li><a href="{% url 'frontend.index.index' %}" >Tips</a></li>
+
+					{% comment %}<li><a href="#">Shortcodes</a>
 						<ul>
 							<li><a href="elements.html">Elements</a></li>
 							<li><a href="typography.html">Typography</a></li>
@@ -114,7 +118,7 @@
 							<li><a href="blog-medium-image.html">Medium Image</a></li>
 							<li><a href="blog-post.html">Single Post</a></li>
 						</ul>
-					</li>
+					</li>{% endcomment %}
 
 					<li><a href="contact.html">Contact</a></li>
 
