@@ -48,6 +48,13 @@
 
 		<div class="sidebar-wrapper">
 			<ul class="nav">
+				<li id="post_tab">
+					<a href="{% url 'backend.post.index' %}">
+						<i class="material-icons">dashboard</i>
+						<p>Posts</p>
+					</a>
+				</li>
+
 				<li id="categories_tab">
 					<a href="{% url 'backend.category.index' %}">
 						<i class="material-icons">dashboard</i>
@@ -184,6 +191,8 @@
 
     });{% endcomment %}
 </script>
+
+{% block modals %}{% endblock %}
 
 {% block script_js %}{% endblock %}
 
