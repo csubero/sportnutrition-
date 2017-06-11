@@ -6,7 +6,7 @@
 
 {% endblock %}
 
-{% block title_section %}
+{% block header_title %}
 
 	Post
 
@@ -17,12 +17,15 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
-				<div class="header">
-					<h4 class="title pull-left">Post</h4>
-					<a href="{% url 'backend.post.create' %}" class="pull-right text-success"><i class="ti ti-file"></i>
-						New Post</a>
+				<div class="card-header" data-background-color="green">
+					<h4>Post</h4>
+					<p>
+						<a href="{% url 'backend.post.create' %}" class="btn btn-primary btn-xs"><i
+								class="ti ti-file"></i>
+							New Post</a>
+					</p>
 				</div>
-				<div class="content table-responsive">
+				<div class="card-content table-responsive">
 					<table class="table table-striped">
 						<thead>
 						<tr>
