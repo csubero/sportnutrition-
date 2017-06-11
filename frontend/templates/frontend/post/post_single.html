@@ -74,5 +74,214 @@
 			</article>
 
 		</div>
+		<div class="four columns">
+
+			<!-- Search Form -->
+			<fieldset class="search-form" action="#" method="get">
+				<button class="search-btn" type="submit"><i class="icon-search"></i></button>
+				<input class="search" type="text" onblur="if(this.value=='')this.value='Search';"
+					   onfocus="if(this.value=='Search')this.value='';" value="Search"/>
+			</fieldset>
+
+
+			<!-- About -->
+			<div class="widget">
+				<h3 class="headline">About</h3><span class="line"></span>
+				<div class="clearfix"></div>
+				<p>Morbi eros bibendum lorem ipsum dolor pellentesque sed vel consectetur pulvinar pellentesque varius
+					bibendum. </p>
+			</div>
+
+
+			<!-- Categories -->
+			<div class="widget">
+				<h3 class="headline">Categories</h3><span class="line"></span>
+				<div class="clearfix"></div>
+				<nav class="categories">
+					<ul>
+						{% for category in categories %}
+							<li><a href="#">{{ category }}</a></li>
+						{% endfor %}
+					</ul>
+				</nav>
+			</div>
+
+
+			<!-- Tabs -->
+			<div class="widget" style="margin: 40px 0 0 0;">
+
+				<!-- Tabs Navigation -->
+				<ul class="tabs-nav blog">
+					<li class="active"><a href="#tab1" title="Recent Posts"><i class="icon-time"></i></a></li>
+					<li><a href="#tab2" title="Popular Posts"><i class="icon-star"></i></a></li>
+					<li><a href="#tab3" title="Recent Comments"><i class="icon-comments-alt"></i></a></li>
+				</ul>
+
+				<!-- Tabs Content -->
+				<div class="tabs-container">
+
+					<div class="tab-content" id="tab1">
+
+						<!-- Recent Posts -->
+						<ul class="widget-tabs">
+
+							<!-- Post #1 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img src="images/blog-widget-01.jpg" alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<h4><a href="#">How To Download The Google Fonts Catalog</a></h4>
+									<span>28 May 2013</span>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+
+							<!-- Post #2 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img src="images/blog-widget-02.jpg" alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<h4><a href="#">The State of the Digital Music Industry</a></h4>
+									<span>16 May 2013</span>
+								</div>
+								<div class="clearfix"></div>
+
+							</li>
+
+							<!-- Post #3 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img src="images/blog-widget-03.jpg" alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<h4><a href="#">Solving the Puzzles of Mimicry in Nature</a></h4>
+									<span>10 May 2013</span>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+						</ul>
+
+					</div>
+
+					<div class="tab-content" id="tab2">
+
+						<!-- Popular Posts -->
+						<ul class="widget-tabs">
+
+							<!-- Post #1 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img src="images/blog-widget-04.jpg" alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<h4><a href="#">New Sugary Drink Rules Complicate Coffee Orders</a></h4>
+									<span>19 April 2013</span>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+
+							<!-- Post #2 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img src="images/blog-widget-01.jpg" alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<h4><a href="#">How To Download The Google Fonts Catalog</a></h4>
+									<span>28 May 2013</span>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+
+							<!-- Post #3 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img src="images/blog-widget-05.jpg" alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<h4><a href="#">Mobile Editing Tools For Smartphone Photos</a></h4>
+									<span>03 May 2013</span>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="tab-content" id="tab3">
+
+						<!-- Recent Comments -->
+						<ul class="widget-tabs comments">
+
+							<!-- Comment #1 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img
+											src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=100"
+											alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<span>John Doe on:</span>
+									<h4><a href="#1">Solving the Puzzles of Mimicry in Nature</a></h4>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+
+							<!-- Comment #2 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img
+											src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&s=100"
+											alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<span>Michael Brown on:</span>
+									<h4><a href="#2">Mobile Editing Tools For Smartphone Photos</a></h4>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+
+							<!-- Comment #3 -->
+							<li>
+								<div class="widget-thumb">
+									<a href="#"><img src="images/blog-widget-06.jpg" alt=""/></a>
+								</div>
+
+								<div class="widget-text">
+									<span>Vasterad on:</span>
+									<h4><a href="#3">How To Download The Google Fonts Catalog</a></h4>
+								</div>
+								<div class="clearfix"></div>
+							</li>
+
+					</div>
+
+				</div>
+			</div>
+
+
+			{% comment %}<!-- Archives -->
+			<div class="widget">
+				<h3 class="headline">Archives</h3><span class="line"></span>
+				<div class="clearfix"></div>
+				<nav class="categories">
+					<ul>
+						<li><a href="#">May 2013</a></li>
+						<li><a href="#">February 2013</a></li>
+						<li><a href="#">January 2013</a></li>
+					</ul>
+				</nav>
+			</div>{% endcomment %}
+
+		</div>
+	</div>
 
 {% endblock %}
