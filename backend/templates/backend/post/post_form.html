@@ -89,7 +89,11 @@
 
 {% block script_js %}
 
+	<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
 	<script>
+        CKEDITOR.replace('{{ form.body.id_for_label }}');
+
         $('.nav li').removeClass('active');
 
         $('#post_tab').addClass('active');
