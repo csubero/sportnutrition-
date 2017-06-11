@@ -158,14 +158,14 @@
 							<!-- Item -->
 							<li>
 								<div class="portfolio-item media">
-									<figure>
+									<figure class="post-img media">
 										<div class="mediaholder">
-											<a href="{{ post.thumb.url }}" class="mfp-gallery"
+											<a href="{% url 'frontend.post.detail' post.slug %}"
 											   title="{{ post.title|title }}">
 												<img alt=""
 													 src="{{ post.thumb.url }}"/>
 												<div class="hovercover">
-													<div class="hovericon"><i class="hoverzoom"></i></div>
+													<div class="hovericon"><i class="hoverlink"></i></div>
 												</div>
 											</a>
 										</div>

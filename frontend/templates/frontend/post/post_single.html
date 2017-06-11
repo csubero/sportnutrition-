@@ -20,7 +20,8 @@
 					<ul>
 						<li>You are here:</li>
 						<li><a href="{% url 'frontend.index.index' %}">Home</a></li>
-						<li>Posts</li>
+						<li><a href="{% url 'frontend.post.index' %}">Posts</a></li>
+						<li>{{ post }}</li>
 					</ul>
 				</nav>
 			</div>
