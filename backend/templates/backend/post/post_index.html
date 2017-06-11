@@ -33,7 +33,7 @@
 								Title
 							</td>
 							<td class="col-md-3">
-								Slug
+								Created
 							</td>
 							<td class="col-md-1">Status</td>
 							<td class="col-md-1">
@@ -44,7 +44,7 @@
 						{% for post in post_list %}
 							<tr>
 								<td>{{ post.title|capfirst }}</td>
-								<td>{{ post.slug }}</td>
+								<td>{{ post.created_at }}</td>
 								<td>{{ post.get_status_display }}</td>
 								<td class="text-center"><a href="{% url 'backend.post.edit' post.pk %}" title="Edit"><i
 										class="material-icons">edit</i></a>
