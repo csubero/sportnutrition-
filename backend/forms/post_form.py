@@ -1,7 +1,4 @@
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from django.contrib.admin.widgets import AdminFileWidget
 from django.forms import ModelForm, TextInput, Textarea, CheckboxSelectMultiple, Select
-from ckeditor.widgets import CKEditorWidget
 
 from backend.models import Post
 from backend.utils.widgets import AdminImageWidget
