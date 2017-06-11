@@ -158,19 +158,19 @@
 							<!-- Item -->
 							<li>
 								<div class="portfolio-item media">
-									<figure>
+									<figure class="post-img media">
 										<div class="mediaholder">
-											<a href="images/portfolio/portfolio-01a.jpg" class="mfp-gallery"
+											<a href="{% url 'frontend.post.detail' post.slug %}"
 											   title="{{ post.title|title }}">
 												<img alt=""
-													 src="{% static 'frontend/images/portfolio/portfolio-01.jpg' %}"/>
+													 src="{{ post.thumb.url }}"/>
 												<div class="hovercover">
-													<div class="hovericon"><i class="hoverzoom"></i></div>
+													<div class="hovericon"><i class="hoverlink"></i></div>
 												</div>
 											</a>
 										</div>
 
-										<a href="single-project-half.html">
+										<a href="{% url 'frontend.post.detail' post.slug %}">
 											<figcaption class="item-description">
 												<h5>{{ post.title|title }}</h5>
 												{% comment %}<span>Photography</span>{% endcomment %}

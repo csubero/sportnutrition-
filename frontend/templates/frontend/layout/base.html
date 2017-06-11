@@ -64,7 +64,7 @@
 			</div>
 
 			<div id="logo">
-				<h1><a href="index.html"><img src="{% static 'frontend/images/logo.png' %}"
+				<h1><a href="{% url 'frontend.index.index' %}"><img src="{% static 'frontend/images/logo.png' %}"
 											  alt="Sport Nutrition LT"/></a></h1>
 			</div>
 		</div>
@@ -77,9 +77,13 @@
 			<nav id="navigation" class="menu">
 				<ul id="responsive">
 
-					<li><a href="index.html" id="current">Home</a></li>
+					<li><a href="{% url 'frontend.index.index' %}" >Home</a></li>
 
-					<li><a href="#">Shortcodes</a>
+					<li><a href="{% url 'frontend.post.index' %}" >Posts</a></li>
+
+					<li><a href="{% url 'frontend.index.index' %}" >Tips</a></li>
+
+					{% comment %}<li><a href="#">Shortcodes</a>
 						<ul>
 							<li><a href="elements.html">Elements</a></li>
 							<li><a href="typography.html">Typography</a></li>
@@ -114,7 +118,7 @@
 							<li><a href="blog-medium-image.html">Medium Image</a></li>
 							<li><a href="blog-post.html">Single Post</a></li>
 						</ul>
-					</li>
+					</li>{% endcomment %}
 
 					<li><a href="contact.html">Contact</a></li>
 
@@ -140,6 +144,8 @@
 
 <!-- Content Wrapper / Start -->
 <div id="content-wrapper">
+
+	{% block title_bar %}{% endblock %}
 
 	{% block content  %}{% endblock %}
 
@@ -222,7 +228,7 @@
 	<!-- Container -->
 	<div class="container">
 
-		<div class="eight columns">© Copyright 2013 by <a href="{% url 'frontend.index.index' %}">Sport Nutrition LT</a>. All Rights Reserved.</div>
+		<div class="eight columns">© Copyright {% now 'Y' %} by <a href="{% url 'frontend.index.index' %}">Sport Nutrition LT</a>. All Rights Reserved.</div>
 		<div class="eight columns">
 			<ul class="social-icons-footer">
 				<li><a href="#" class="tooltip top" title="Twitter"><i class="icon-twitter"></i></a></li>
