@@ -1,8 +1,9 @@
 {% extends 'backend/layout/template.html' %}
+{% load static %}
 
 {% block extrahead %}
-<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
-{{ block.super }}
+	<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+	{{ block.super }}
 {% endblock %}
 
 {% block title %}
@@ -11,7 +12,7 @@
 
 {% endblock %}
 
-{% block title_section %}
+{% block header_title %}
 
 	Post
 
@@ -21,22 +22,22 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
-				<div class="header">
-					<h4 class="title">{{ title_form }}</h4>
+				<div class="card-header" data-background-color="green">
+					<h4>{{ title_form }}</h4>
 				</div>
-				<div class="content">
+				<div class="card-content">
 
 					<form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
 
 						{{ form.media }}
 
-						<div class="form-group">
-							{{ form.title.label_tag }}
+						<div class="form-group label-floating">
+							<label class="control-label">{{ form.title.label }}</label>
 							{{ form.title }}
 						</div>
 
-						<div class="form-group">
-							{{ form.summary.label_tag }}
+						<div class="form-group label-floating">
+							<label class="control-label">{{ form.summary.label }}</label>
 							{{ form.summary }}
 						</div>
 
@@ -59,21 +60,25 @@
 
 							{% for category in form.categories %}
 
-								<label class="checkbox checkbox-azure" for="checkbox1" style="margin-bottom: 10px;">
+								<div class="checkbox">
+									<label for="{{ category.id_for_label }}" style="margin-bottom: 10px;">
 
-									{{ category.tag }}{{ category.choice_label }}
+										{{ category.tag }}{{ category.choice_label }}
 
-								</label>
+									</label>
+								</div>
 							{% endfor %}
 						</div>
 
 						<div class="form-group">
-							{{ form.status.label_tag }}
+							<label class="control-label">Status</label>
 							{{ form.status }}
 						</div>
 
-						<a class="btn btn-danger btn-fill btn-wd" href="{% url 'backend.post.index' %}">Cancel</a>
-						<button type="submit" class="btn btn-info btn-fill btn-wd">Save Post</button>
+						<div class="text-right">
+							<a class="btn btn-danger" href="{% url 'backend.post.index' %}">Cancel</a>
+							<button type="submit" class="btn btn-success">Save Post</button>
+						</div>
 					</form>
 
 				</div>
@@ -85,7 +90,14 @@
 
 {% block script_js %}
 
+	<script src="{% static 'backend/assets/js/bootstrap-notify.js' %}"></script>
+	<script src="{% static 'backend/assets/js/main.js' %}"></script>
+
+	<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
 	<script>
+        CKEDITOR.replace('{{ form.body.id_for_label }}');
+
         $('.nav li').removeClass('active');
 
         $('#post_tab').addClass('active');

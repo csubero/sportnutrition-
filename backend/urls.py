@@ -9,21 +9,21 @@ urlpatterns = [
 	url(r'^$', IndexView.as_view(), name='backend.index'),
 
 	# Category URL'S
-	url(r'^category/$', CategoryIndexView.as_view(), name='backend.category.index'),
-	url(r'^category/delete/$', CategoryDeleteView.as_view(), name='backend.category.delete'),
+	url(r'^categories/$', CategoryIndexView.as_view(), name='backend.category.index'),
+	url(r'^categories/delete/$', CategoryDeleteView.as_view(), name='backend.category.delete'),
 
 	# Post URL'S
-	url(r'^post/$', PostListView.as_view(), name='backend.post.index'),
-	url(r'^post/create/$', PostCreateView.as_view(), name='backend.post.create'),
-	url(r'^post/(?P<pk>[0-9]+)/edit/$', PostUpdateView.as_view(), name='backend.post.edit'),
-	url(r'^post/delete/$', PostDeleteView.as_view(), name='backend.post.delete'),
+	url(r'^posts/$', PostListView.as_view(), name='backend.post.index'),
+	url(r'^posts/create/$', PostCreateView.as_view(), name='backend.post.create'),
+	url(r'^posts/(?P<pk>[0-9]+)/edit/$', PostUpdateView.as_view(), name='backend.post.edit'),
+	url(r'^posts/delete/$', PostDeleteView.as_view(), name='backend.post.delete'),
 
 	# Tip URL'S
-	url(r'^tip/$', TipListView.as_view(), name='backend.tip.index'),
-	url(r'^tip/create/$', TipCreateView.as_view(), name='backend.tip.create'),
-	url(r'^tip/(?P<pk>[0-9]+)/edit/$', TipUpdateView.as_view(), name='backend.tip.edit'),
-	url(r'^tip/delete/$', TipDeleteView.as_view(), name='backend.tip.delete'),
-	url(r'^tip/upload-image/$', TipUploadImageView.as_view(), name='backend.tip.upload_image'),
+	url(r'^tips/$', TipListView.as_view(), name='backend.tip.index'),
+	url(r'^tips/create/$', TipCreateView.as_view(), name='backend.tip.create'),
+	url(r'^tips/(?P<pk>[0-9]+)/edit/$', TipUpdateView.as_view(), name='backend.tip.edit'),
+	url(r'^tips/delete/$', TipDeleteView.as_view(), name='backend.tip.delete'),
+	url(r'^tips/upload-image/$', TipUploadImageView.as_view(), name='backend.tip.upload_image'),
 ]
 
 if settings.DEBUG:

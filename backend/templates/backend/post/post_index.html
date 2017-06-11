@@ -6,7 +6,7 @@
 
 {% endblock %}
 
-{% block title_section %}
+{% block header_title %}
 
 	Post
 
@@ -17,12 +17,15 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
-				<div class="header">
-					<h4 class="title pull-left">Post</h4>
-					<a href="{% url 'backend.post.create' %}" class="pull-right text-success"><i class="ti ti-file"></i>
-						New Post</a>
+				<div class="card-header" data-background-color="green">
+					<h4>Post</h4>
+					<p>
+						<a href="{% url 'backend.post.create' %}" class="btn btn-primary btn-xs"><i
+								class="ti ti-file"></i>
+							New Post</a>
+					</p>
 				</div>
-				<div class="content table-responsive">
+				<div class="card-content table-responsive">
 					<table class="table table-striped">
 						<thead>
 						<tr>
@@ -44,10 +47,10 @@
 								<td>{{ post.slug }}</td>
 								<td>{{ post.get_status_display }}</td>
 								<td class="text-center"><a href="{% url 'backend.post.edit' post.pk %}" title="Edit"><i
-										class="ti ti-pencil-alt"></i></a>
+										class="material-icons">edit</i></a>
 									<a href="#" title="Delete" class="text-danger" data-toggle="modal"
 									   data-target="#delete_post_modal"
-									   onclick="delete_post({{ post.pk }})"><i class="ti-trash"></i></a>
+									   onclick="delete_post({{ post.pk }})"><i class="material-icons">delete</i></a>
 								</td>
 							</tr>
 
