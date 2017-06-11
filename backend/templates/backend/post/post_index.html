@@ -47,10 +47,10 @@
 								<td>{{ post.slug }}</td>
 								<td>{{ post.get_status_display }}</td>
 								<td class="text-center"><a href="{% url 'backend.post.edit' post.pk %}" title="Edit"><i
-										class="ti ti-pencil-alt"></i></a>
+										class="material-icons">edit</i></a>
 									<a href="#" title="Delete" class="text-danger" data-toggle="modal"
 									   data-target="#delete_post_modal"
-									   onclick="delete_post({{ post.pk }})"><i class="ti-trash"></i></a>
+									   onclick="delete_post({{ post.pk }})"><i class="material-icons">delete</i></a>
 								</td>
 							</tr>
 

@@ -17,7 +17,7 @@ class PostForm(ModelForm):
 			'title': TextInput(attrs={'class': 'form-control border-input'}),
 			'summary': Textarea(attrs={'class': 'form-control border-input', 'cols': 1}),
 			'body': CKEditorUploadingWidget(),
-			'thumb': AdminImageWidget(attrs={'class': 'form-control border-input'}),
+			'thumb': AdminImageWidget(attrs={'class': 'form-control'}),
 			'categories': CheckboxSelectMultiple(),
 			'status': Select(attrs={'class': 'form-control border-input'})
 		}
