@@ -19,7 +19,7 @@
 /* Header
 ====================================================================== */
 #header {
-	height: 86px;
+	height: 130px;
 	z-index: 999;
 	background: #fff;
 	position: relative;
@@ -35,12 +35,12 @@
 
 /* Logo
 ====================================*/
-#logo { margin-top: 32px; }
+#logo { margin-top: 10px; }
  
 #logo a img {
 	float: left;
 	width: auto;
-	height: 24px;
+	height: 105px;
 }
 
 
@@ -87,7 +87,7 @@
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 18px;
-	padding: 34px 18px 31px 18px;
+	padding: 54px 18px 51px 18px;
 	overflow: hidden;
 	border-bottom: 3px solid transparent;
 }
@@ -218,7 +218,7 @@
 	border-radius: 30px;
 }
 
-#search-form { margin: 26px 0 0 10px; }
+#search-form { margin: 46px 0 0 10px; }
 
 #search-form .search-text-box:focus {
 	font-size: 13px;
