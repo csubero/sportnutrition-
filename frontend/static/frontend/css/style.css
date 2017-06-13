@@ -255,13 +255,17 @@
 	body { padding-top: 0; }
 
 	#header #logo {
-		width: 124px;
+		width: 95px;
 		left: 0;
 		right: 0;
 		position: absolute;
 		margin: 0 auto;
-		margin-top: 28px;
+		margin-top: 10px;
 		z-index: 99;
+	}
+
+	#logo a img{
+		height: 55px;
 	}
 
 	a.menu-trigger {
