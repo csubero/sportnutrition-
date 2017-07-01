@@ -77,8 +77,8 @@ WSGI_APPLICATION = 'sportnutrition.wsgi.application'
 DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
-		'NAME': 'sportnutritionlt',
-		'USER': 'root',
+		'NAME': 'sportnutrition',
+		'USER': 'sportuser',
 		'PASSWORD': 'C@sa1234',
 		'HOST': '127.0.0.1',
 		'PORT': '',
