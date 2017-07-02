@@ -14,6 +14,10 @@ class PostListView(ListView):
 
 	context_object_name = 'post_list'
 
+	def get_queryset(self):
+
+		return Post.objects.filter(type=Post.POST)
+
 
 class PostCreateView(CreateView):
 	model = Post
