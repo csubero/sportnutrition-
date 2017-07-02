@@ -52,6 +52,8 @@ class PostUpdateView(UpdateView):
 
 	form_class = PostForm
 
+	context_object_name = 'post'
+
 	def get_success_url(self):
 		return reverse_lazy('backend.post.edit', kwargs={'pk': self.object.id})
 
