@@ -33,7 +33,7 @@ class PostCreateView(CreateView):
 		return data
 
 	def form_valid(self, form):
-		form.instance.type = Post.DIET
+		form.instance.type = Post.POST
 		result = super(PostCreateView, self).form_valid(form)
 
 		return result
