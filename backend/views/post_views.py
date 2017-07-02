@@ -32,6 +32,12 @@ class PostCreateView(CreateView):
 
 		return data
 
+	def form_valid(self, form):
+		form.instance.type = Post.DIET
+		result = super(PostCreateView, self).form_valid(form)
+
+		return result
+
 
 class PostUpdateView(UpdateView):
 	model = Post
@@ -58,8 +64,6 @@ class PostUpdateView(UpdateView):
 		return data
 
 	def form_valid(self, form):
-		form.save()
-
 		self.request.session['message_post'] = 'The post has been saved successfully'
 
 		return super(PostUpdateView, self).form_valid(form)
