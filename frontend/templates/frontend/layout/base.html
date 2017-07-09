@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -76,13 +77,10 @@
 
 			<nav id="navigation" class="menu">
 				<ul id="responsive">
-
 					<li><a href="{% url 'frontend.index.index' %}" >Home</a></li>
-
 					<li><a href="{% url 'frontend.post.index' %}" >Posts</a></li>
-
 					<li><a href="{% url 'frontend.index.index' %}" >Tips</a></li>
-
+					<li><a href="{% url 'frontend.pages.about' %}" >{% trans 'About Us' %}</a></li>
 					{% comment %}<li><a href="#">Shortcodes</a>
 						<ul>
 							<li><a href="elements.html">Elements</a></li>
