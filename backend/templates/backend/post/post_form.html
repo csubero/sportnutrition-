@@ -49,6 +49,13 @@
 							{{ form.body }}
 						</div>
 
+						{% if post %}
+							<div class="form-group">
+								<label>Url: </label> <a href="{% url 'frontend.post.detail' post.slug %}"
+														target="_blank">{% url 'frontend.post.detail' post.slug %} <i class="material-icons">link</i></a>
+							</div>
+						{% endif %}
+
 						<div class="form-group">
 							{{ form.thumb.label_tag }}
 							{{ form.thumb }}

@@ -26,7 +26,7 @@
 					</p>
 				</div>
 				<div class="card-content table-responsive">
-					<table class="table table-striped">
+					<table class="table">
 						<thead>
 						<tr>
 							<td class="col-md-8">
@@ -61,6 +61,11 @@
 							</tr>
 
 						{% endfor %}
+
+						{% if post_list %}
+							{% include 'backend/layout/paginator.html' with colspan=4 %}
+						{% endif %}
+
 						</tbody>
 					</table>
 				</div>

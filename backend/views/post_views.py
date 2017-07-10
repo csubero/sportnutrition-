@@ -14,6 +14,12 @@ class PostListView(ListView):
 
 	context_object_name = 'post_list'
 
+	paginate_by = 10
+
+	def get_queryset(self):
+
+		return Post.objects.filter(type=Post.POST)
+
 
 class PostCreateView(CreateView):
 	model = Post
@@ -32,6 +38,12 @@ class PostCreateView(CreateView):
 
 		return data
 
+	def form_valid(self, form):
+		form.instance.type = Post.POST
+		result = super(PostCreateView, self).form_valid(form)
+
+		return result
+
 
 class PostUpdateView(UpdateView):
 	model = Post
@@ -39,6 +51,8 @@ class PostUpdateView(UpdateView):
 	template_name = 'backend/post/post_form.html'
 
 	form_class = PostForm
+
+	context_object_name = 'post'
 
 	def get_success_url(self):
 		return reverse_lazy('backend.post.edit', kwargs={'pk': self.object.id})
@@ -58,8 +72,6 @@ class PostUpdateView(UpdateView):
 		return data
 
 	def form_valid(self, form):
-		form.save()
-
 		self.request.session['message_post'] = 'The post has been saved successfully'
 
 		return super(PostUpdateView, self).form_valid(form)

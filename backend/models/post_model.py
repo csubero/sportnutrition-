@@ -9,6 +9,7 @@ from backend.models import Category
 
 
 class Post(models.Model):
+	# post Status options
 	DRAFT = 1
 	PUBLISH = 2
 	UNPUBLISH = 3
@@ -19,12 +20,23 @@ class Post(models.Model):
 		(UNPUBLISH, _('Unpublished'))
 	)
 
+	POST = 1
+	TIP = 2
+	DIET = 3
+
+	POST_TYPE = (
+		(POST, 'Post'),
+		(TIP, 'Tip'),
+		(DIET, 'Diet')
+	)
+
 	title = models.CharField(max_length=250, unique=True)
 	summary = models.TextField()
 	body = models.TextField()
 	thumb = models.ImageField(default=None, upload_to='thumbs/%Y/%m/%d')
 	slug = models.SlugField(unique=True, max_length=150)
 	status = models.IntegerField(default=DRAFT, choices=POST_STATUS)
+	type = models.IntegerField(default=POST, choices=POST_TYPE)
 
 	categories = models.ManyToManyField(Category, default=None, blank=True)
 

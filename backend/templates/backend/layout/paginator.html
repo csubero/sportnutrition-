@@ -1,0 +1,32 @@
+<tr>
+	<td colspan="{{ colspan }}" class="text-center">
+		<ul class="pagination">
+
+			{% if page_obj.has_previous %}
+
+				<li><a href="?page={{ page_obj.previous_page_number }}"
+					   aria-label="Prev"><span
+						aria-hidden="true">&laquo;</span></a></li>
+			{% else %}
+				<li class="disabled"><a aria-label="Prev"><span
+						aria-hidden="true">&laquo;</span></a></li>
+			{% endif %}
+			<li><span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+			</li>
+			{% if page_obj.has_next %}
+				<li>
+					<a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			{% else %}
+				<li class="disabled">
+					<a aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			{% endif %}
+
+		</ul>
+	</td>
+</tr>

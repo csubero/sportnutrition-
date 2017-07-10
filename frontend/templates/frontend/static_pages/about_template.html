@@ -1,0 +1,74 @@
+{% extends 'frontend/layout/base.html' %}
+{% load i18n %}
+
+{% block title %}
+
+	{% trans 'About Us' %}
+
+{% endblock %}
+
+{% block title_bar %}
+	<section id="titlebar">
+		<!-- Container -->
+		<div class="container">
+
+			<div class="eight columns">
+				<h2>{% trans 'About Us' %}</h2>
+			</div>
+
+			<div class="eight columns">
+				<nav id="breadcrumbs">
+					<ul>
+						<li>You are here:</li>
+						<li><a href="{% url 'frontend.index.index' %}">Home</a></li>
+						<li>{% trans 'About Us' %}</li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+		<!-- Container / End -->
+	</section>
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="container" style="margin-bottom: 10px;">
+		<div class="sixteen columns">
+			<h3 class="headline">{% trans 'In Sport Nutrition LT' %}</h3><span class="line" style="margin-bottom:30px;"></span>
+			<div class="clearfix"></div>
+			<p>
+				{% blocktrans %}
+					<span class="dropcap">S</span>ports Nutrition is a branch of Human Nutrition that specializes in
+					guiding the diet of people who
+					perform intense or moderate physical activities in a professionally or not. Depending on the
+					determined
+					goals of the sports routine that is done, attention will be focused on one or other nutrients, as
+					well
+					as on the amount and distribution of the same during the day. In addition these nutritional
+					treatments
+					take into account all the cycles of the sport: rest, the active phase and the recovery phase.
+				{% endblocktrans %}
+			</p>
+			<p>
+				{% blocktrans %}
+					An individualized nutritional plan, can optimize the performance of people in physical training,
+					achieve
+					better results in activity and achieve a faster recovery after the wear and tear they are subjected
+					to.
+					It also has the power to modify the body composition of the individual until reaching the proposed
+					initial goal.
+				{% endblocktrans %}
+			</p>
+			<p>
+				{% blocktrans %}
+					In this way sports nutrition accompanied by genetic factors and the type of training according to
+					the sport being carried out, is ONE of the three factors that mark the practice of sport. For this
+					reason there can not be a generalized diet, each treatment must be adjusted to the individual and
+					particular characteristics of each person (genetic load and lifestyle).
+				{% endblocktrans %}
+			</p>
+		</div>
+	</div>
+{% endblock %}
