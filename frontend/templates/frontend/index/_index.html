@@ -165,8 +165,11 @@
 										<div class="mediaholder">
 											<a href="{% url 'frontend.post.detail' post.slug %}"
 											   title="{{ post.title|title }}">
-												<img alt=""
-													 src="{{ post.thumb.url }}"/>
+												{% comment %}<img alt=""
+													 src="{{ post.thumb.url }}"/>{% endcomment %}
+												<div style="width: 280px; height: 200px;background-image: url('{{ post.thumb.url }}'); display: block">
+
+												</div>
 												<div class="hovercover">
 													<div class="hovericon"><i class="hoverlink"></i></div>
 												</div>
@@ -176,7 +179,6 @@
 										<a href="{% url 'frontend.post.detail' post.slug %}">
 											<figcaption class="item-description">
 												<h5>{{ post.title|title }}</h5>
-												{% comment %}<span>Photography</span>{% endcomment %}
 											</figcaption>
 										</a>
 
