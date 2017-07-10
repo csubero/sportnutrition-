@@ -15,6 +15,37 @@
 	<!-- Mobile Specific Metas
     ================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Favicon
+    ================================================== -->
+	<link rel="apple-touch-icon-precomposed" sizes="57x57"
+		  href="{% static 'frontend/favicons/apple-touch-icon-57x57.png' %}"/>
+	<link rel="apple-touch-icon-precomposed" sizes="114x114"
+		  href="{% static 'frontend/favicons/apple-touch-icon-114x114.png' %}"/>
+	<link rel="apple-touch-icon-precomposed" sizes="72x72"
+		  href="{% static 'frontend/favicons/apple-touch-icon-72x72.png' %}"/>
+	<link rel="apple-touch-icon-precomposed" sizes="144x144"
+		  href="{% static 'frontend/favicons/apple-touch-icon-144x144.png' %}"/>
+	<link rel="apple-touch-icon-precomposed" sizes="60x60"
+		  href="{% static 'frontend/favicons/apple-touch-icon-60x60.png' %}"/>
+	<link rel="apple-touch-icon-precomposed" sizes="120x120"
+		  href="{% static 'frontend/favicons/apple-touch-icon-120x120.png' %}"/>
+	<link rel="apple-touch-icon-precomposed" sizes="76x76"
+		  href="{% static 'frontend/favicons/apple-touch-icon-76x76.png' %}"/>
+	<link rel="apple-touch-icon-precomposed" sizes="152x152"
+		  href="{% static 'frontend/favicons/apple-touch-icon-152x152.png' %}"/>
+	<link rel="icon" type="image/png" href="{% static 'frontend/favicons/favicon-196x196.png' %}" sizes="196x196"/>
+	<link rel="icon" type="image/png" href="{% static 'frontend/favicons/favicon-96x96.png' %}" sizes="96x96"/>
+	<link rel="icon" type="image/png" href="{% static 'frontend/favicons/favicon-32x32.png' %}" sizes="32x32"/>
+	<link rel="icon" type="image/png" href="{% static 'frontend/favicons/favicon-16x16.png' %}" sizes="16x16"/>
+	<link rel="icon" type="image/png" href="{% static 'frontend/favicons/favicon-128.png' %}" sizes="128x128"/>
+	<meta name="application-name" content="&nbsp;"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF"/>
+	<meta name="msapplication-TileImage" content="{% static 'frontend/favicons/mstile-144x144.png' %}"/>
+	<meta name="msapplication-square70x70logo" content="{% static 'frontend/favicons/mstile-70x70.png' %}"/>
+	<meta name="msapplication-square150x150logo" content="{% static 'frontend/favicons/mstile-150x150.png' %}"/>
+	<meta name="msapplication-wide310x150logo" content="{% static 'frontend/favicons/mstile-310x150.png' %}"/>
+	<meta name="msapplication-square310x310logo" content="{% static 'frontend/favicons/mstile-310x310.png' %}"/>
+
 
 	<!-- CSS
     ================================================== -->
@@ -66,7 +97,7 @@
 
 			<div id="logo">
 				<h1><a href="{% url 'frontend.index.index' %}"><img src="{% static 'frontend/images/logo_en.png' %}"
-											  alt="Sport Nutrition LT"/></a></h1>
+																	alt="Sport Nutrition LT"/></a></h1>
 			</div>
 		</div>
 
@@ -77,47 +108,10 @@
 
 			<nav id="navigation" class="menu">
 				<ul id="responsive">
-					<li><a href="{% url 'frontend.index.index' %}" >Home</a></li>
-					<li><a href="{% url 'frontend.post.index' %}" >Posts</a></li>
-					<li><a href="{% url 'frontend.index.index' %}" >Tips</a></li>
-					<li><a href="{% url 'frontend.pages.about' %}" >{% trans 'About Us' %}</a></li>
-					{% comment %}<li><a href="#">Shortcodes</a>
-						<ul>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="typography.html">Typography</a></li>
-							<li><a href="pricing-tables.html">Pricing Tables</a></li>
-							<li><a href="icons.html">Icons</a></li>
-						</ul>
-					</li>
-
-					<li><a href="#">Pages</a>
-						<ul>
-							<li><a href="about.html">About</a></li>
-							<li><a href="services.html">Services</a></li>
-							<li><a href="faq.html">FAQ</a></li>
-							<li><a href="sidebar-right.html">Right Sidebar</a></li>
-							<li><a href="sidebar-left.html">Left Sidebar</a></li>
-							<li><a href="404-page.html">404 Page</a></li>
-						</ul>
-					</li>
-
-					<li><a href="#">Portfolio</a>
-						<ul>
-							<li><a href="portfolio-3-columns.html">3 Columns</a></li>
-							<li><a href="portfolio-4-columns.html">4 Columns</a></li>
-							<li><a href="single-project-half.html">Single Project Half</a></li>
-							<li><a href="single-project-wide.html">Single Project Wide</a></li>
-						</ul>
-					</li>
-
-					<li><a href="#">Blog</a>
-						<ul>
-							<li><a href="blog-large-image.html">Large Image</a></li>
-							<li><a href="blog-medium-image.html">Medium Image</a></li>
-							<li><a href="blog-post.html">Single Post</a></li>
-						</ul>
-					</li>{% endcomment %}
-
+					<li><a href="{% url 'frontend.index.index' %}">Home</a></li>
+					<li><a href="{% url 'frontend.post.index' %}">Posts</a></li>
+					<li><a href="{% url 'frontend.index.index' %}">Tips</a></li>
+					<li><a href="{% url 'frontend.pages.about' %}">{% trans 'About Us' %}</a></li>
 					<li><a href="contact.html">Contact</a></li>
 
 					<!-- Search Form -->
@@ -145,7 +139,7 @@
 
 	{% block title_bar %}{% endblock %}
 
-	{% block content  %}{% endblock %}
+	{% block content %}{% endblock %}
 
 </div>
 <!-- Content Wrapper / End -->
@@ -226,11 +220,14 @@
 	<!-- Container -->
 	<div class="container">
 
-		<div class="eight columns">© Copyright {% now 'Y' %} by <a href="{% url 'frontend.index.index' %}">Sport Nutrition LT</a>. All Rights Reserved.</div>
+		<div class="eight columns">© Copyright {% now 'Y' %} by <a href="{% url 'frontend.index.index' %}">Sport
+			Nutrition LT</a>. All Rights Reserved.
+		</div>
 		<div class="eight columns">
 			<ul class="social-icons-footer">
 				<li><a href="#" class="tooltip top" title="Twitter"><i class="icon-twitter"></i></a></li>
-				<li><a href="#" class="tooltip top" title="Facebook"><i class="icon-facebook"></i></a></li>
+				<li><a href="https://www.facebook.com/sportnutrition.lt/" class="tooltip top" title="Facebook"
+					   target="_blank"><i class="icon-facebook"></i></a></li>
 				<li><a href="#" class="tooltip top" title="LinkedIn"><i class="icon-linkedin-rect"></i></a></li>
 			</ul>
 		</div>
