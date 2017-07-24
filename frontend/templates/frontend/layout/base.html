@@ -89,7 +89,7 @@
 
 			<div id="mobile-navigation">
 				<form method="GET" id="menu-search" action="{% url 'frontend.search.result' %}">
-					<input type="text" name="search_str" placeholder="Start Typing..."/>
+					<input type="text" name="search_str" value="{{ search_str }}" placeholder="Start Typing..."/>
 				</form>
 				<a href="#menu" class="menu-trigger"><i class="icon-reorder"></i></a>
 				<span class="search-trigger"><i class="icon-search"></i></span>
@@ -118,7 +118,7 @@
 					<li class="search-container">
 						<div id="search-form">
 							<form method="get" action="{% url 'frontend.search.result' %}">
-								<input type="text" name="search_str" class="search-text-box"/>
+								<input type="text" name="search_str" value="{{ search_str }}" class="search-text-box"/>
 							</form>
 						</div>
 					</li>
