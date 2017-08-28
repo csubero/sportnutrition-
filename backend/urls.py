@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 
 from backend.views import IndexView, PostListView, CategoryIndexView, CategoryDeleteView, PostCreateView, \
 	PostUpdateView, PostDeleteView, TipListView, TipCreateView, TipUpdateView, TipDeleteView, TipUploadImageView, \
-	QuestionListView
+	QuestionListView, QuestionCreateView
 
 urlpatterns = [
 	url(r'^$', IndexView.as_view(), name='backend.index'),
@@ -28,6 +28,7 @@ urlpatterns = [
 
 	# Question URL'S
 	url(r'^question/$', QuestionListView.as_view(), name='backend.question.index'),
+	url(r'^question/create/$', QuestionCreateView.as_view(), name='backend.question.create'),
 ]
 
 if settings.DEBUG:

@@ -24,10 +24,31 @@
 					<table class="table">
 						<thead>
 						<tr>
-							<th></th>
+							<th class="col-md-5">English Question</th>
+							<th class="col-md-5">Spanish Question</th>
+							<th class="col-md-2"></th>
 						</tr>
 						</thead>
+						<tbody>
+						{% for question in question_list %}
+							<tr>
+								<td>{{ question.english_question }}</td>
+								<td>{{ question.spanish_question }}</td>
+								<td></td>
+							</tr>
+						{% empty %}
+							<tr>
+								<td colspan="3" class="text-center text-danger">Empty</td>
+							</tr>
+						{% endfor %}
+						</tbody>
 					</table>
+				</div>
+				<div class="card-footer row">
+					<div class="col-md-6 pull-right text-right">
+						<a class="text-success" href="{% url 'backend.question.create' %}"><i class="material-icons">note_add</i>
+							Add Question</a>
+					</div>
 				</div>
 			</div>
 		</div>
