@@ -56,6 +56,8 @@
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
+	{% block css_block %}{% endblock %}
+
 	<!-- Java Script
     ================================================== -->
 	<script src="{% static 'frontend/scripts/jquery.min.js' %}"></script>
@@ -110,7 +112,7 @@
 				<ul id="responsive">
 					<li><a href="{% url 'frontend.index.index' %}">Home</a></li>
 					<li><a href="{% url 'frontend.post.index' %}">Posts</a></li>
-{#					<li><a href="{% url 'frontend.index.index' %}">Tips</a></li>#}
+					{#					<li><a href="{% url 'frontend.index.index' %}">Tips</a></li>#}
 					<li><a href="{% url 'frontend.pages.about' %}">{% trans 'About Us' %}</a></li>
 					<li><a href="contact.html">Contact</a></li>
 
@@ -216,6 +218,8 @@
 
 </div>
 <!-- Footer Bottom / Start -->
+
+{% block script_js %}{% endblock %}
 
 </body>
 </html>
