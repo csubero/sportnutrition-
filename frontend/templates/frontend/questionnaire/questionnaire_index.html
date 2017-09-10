@@ -1,0 +1,118 @@
+{% extends 'frontend/layout/base.html' %}
+
+{% load i18n %}
+{% load  static %}
+
+
+{% block title %}
+	{% trans 'Questionnaire' %}
+{% endblock %}
+
+{% block css_block %}
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+	<link href="{% static 'frontend/css/bootstrap-all.css' %}" rel="stylesheet"/>
+
+{% endblock %}
+
+{% block title_bar %}
+	<section id="titlebar">
+		<!-- Container -->
+		<div class="container">
+
+			<div class="eight columns">
+				<h2>{% trans 'Questionnaire' %}</h2>
+			</div>
+
+			<div class="eight columns">
+				<nav id="breadcrumbs">
+					<ul>
+						<li>{% trans 'You are here' %}:</li>
+						<li><a href="{% url 'frontend.index.index' %}">Home</a></li>
+						<li>{% trans 'Questionnaire' %}</li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+		<!-- Container / End -->
+	</section>
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="container" style="margin-bottom: 10px;">
+		<div class="sixteen columns">
+			<!--      Wizard container        -->
+			<div class="wizard-container bootstrap">
+
+				<div class="card wizard-card" data-color="green" id="wizard">
+					<form action="" method="">
+						<!--        You can switch ' data-color="azzure" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+
+						<div class="wizard-header">
+							<h3>
+								{% trans 'CLINICAL NUTRITIONAL HISTORY' %}<br>
+							</h3>
+						</div>
+						<div class="wizard-navigation">
+							<ul class="table-responsive">
+								<li><a href="#personal_info" data-toggle="tab">Personal Info</a></li>
+								<li><a href="#record" data-toggle="tab">{% trans 'RECORD CLINICAL-NUTRITIONAL' %}</a>
+								</li>
+								<li><a href="#laboratory_test" data-toggle="tab">{% trans 'LABORATORY TESTS' %}</a></li>
+								<li><a href="#anthropometrics_mesures"
+									   data-toggle="tab">{% trans 'ANTHROPOMETRICS MEASURES' %}</a></li>
+								<li><a href="#alimentary_habits"
+									   data-toggle="tab">{% trans 'ALIMENTARY HABITS' %}</a></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							{% include 'frontend/questionnaire/personal_info.html' %}
+
+							{% include 'frontend/questionnaire/record.html' %}
+
+							{% include 'frontend/questionnaire/laboratory_tests.html' %}
+
+							{% include 'frontend/questionnaire/anthropometrics_mesures.html' %}
+
+							{% include 'frontend/questionnaire/alimentary_habits.html' %}
+
+
+						</div>
+						<div class="wizard-footer">
+							<div class="pull-right">
+								<input type='button' class='btn btn-next btn-fill btn-success btn-wd btn-sm' name='next'
+									   value='{% trans 'Next' %}'/>
+								<input type='button' class='btn btn-finish btn-fill btn-success btn-wd btn-sm'
+									   name='finish' value='{% trans 'Finish' %}'/>
+							</div>
+							<div class="pull-left">
+								<input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm'
+									   name='previous' value='{% trans 'Previous' %}'/>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</form>
+				</div>
+			</div> <!-- wizard container -->
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block script_js %}
+
+	<!--   Core JS Files   -->
+	<script src="{% static 'frontend/scripts/jquery-2.2.4.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'frontend/scripts/bootstrap.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'frontend/scripts/jquery.bootstrap.wizard.js' %}" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="{% static 'frontend/scripts/gsdk-bootstrap-wizard.js' %}"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="{% static 'frontend/scripts/jquery.validate.min.js' %}"></script>
+
+
+{% endblock %}
