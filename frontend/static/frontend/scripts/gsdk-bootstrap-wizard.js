@@ -133,6 +133,8 @@ $(document).ready(function(){
         readURL(this);
     });
 
+
+    // Radios
     $('[data-toggle="wizard-radio"]').click(function(){
         wizard = $(this).closest('.wizard-card');
         wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
@@ -141,6 +143,48 @@ $(document).ready(function(){
         $(this).find('[type="radio"]').attr('checked','true');
     });
 
+    $('[data-toggle="wizard-radio-personal"]').click(function(){
+        wizard = $(this).closest('.wizard-card');
+        wizard.find('[data-toggle="wizard-radio-personal"]').removeClass('active');
+        $(this).addClass('active');
+        $(wizard).find('[type="radio"]').removeAttr('checked');
+        $(this).find('[type="radio"]').attr('checked','true');
+    });
+
+    $('[data-toggle="wizard-radio-habits"]').click(function(){
+        wizard = $(this).closest('.wizard-card');
+        wizard.find('[data-toggle="wizard-radio-habits"]').removeClass('active');
+        $(this).addClass('active');
+        $(wizard).find('[type="radio"]').removeAttr('checked');
+        $(this).find('[type="radio"]').attr('checked','true');
+    });
+
+    $('[data-toggle="wizard-radio-allergies"]').click(function(){
+        wizard = $(this).closest('.wizard-card');
+        wizard.find('[data-toggle="wizard-radio-allergies"]').removeClass('active');
+        $(this).addClass('active');
+        $(wizard).find('[type="radio"]').removeAttr('checked');
+        $(this).find('[type="radio"]').attr('checked','true');
+    });
+
+    $('[data-toggle="wizard-radio-alcohol"]').click(function(){
+        wizard = $(this).closest('.wizard-card');
+        wizard.find('[data-toggle="wizard-radio-alcohol"]').removeClass('active');
+        $(this).addClass('active');
+        $(wizard).find('[type="radio"]').removeAttr('checked');
+        $(this).find('[type="radio"]').attr('checked','true');
+    });
+
+    $('[data-toggle="wizard-radio-tobacco"]').click(function(){
+        wizard = $(this).closest('.wizard-card');
+        wizard.find('[data-toggle="wizard-radio-tobacco"]').removeClass('active');
+        $(this).addClass('active');
+        $(wizard).find('[type="radio"]').removeAttr('checked');
+        $(this).find('[type="radio"]').attr('checked','true');
+    });
+
+
+    // CheckBoxes
     $('[data-toggle="wizard-checkbox"]').click(function(){
         if( $(this).hasClass('active')){
             $(this).removeClass('active');
