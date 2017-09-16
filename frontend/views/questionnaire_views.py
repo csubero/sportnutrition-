@@ -7,3 +7,9 @@ class QuestionnaireView(View):
 
 	def get(self, request):
 		return render(request, self.template_name)
+
+	def post(self, request):
+
+		print(request.POST)
+
+		return render(request, self.template_name)

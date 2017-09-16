@@ -47,7 +47,7 @@
 			<div class="wizard-container bootstrap">
 
 				<div class="card wizard-card" data-color="green" id="wizard">
-					<form action="" method="post">
+					<form action="" method="post">{% csrf_token %}
 						<!--        You can switch ' data-color="azzure" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
 
 						<div class="wizard-header">
@@ -84,7 +84,7 @@
 							<div class="pull-right">
 								<input type='button' class='btn btn-next btn-fill btn-success btn-wd btn-sm' name='next'
 									   value='{% trans 'Next' %}'/>
-								<input type='button' class='btn btn-finish btn-fill btn-success btn-wd btn-sm'
+								<input type='submit' class='btn btn-finish btn-fill btn-success btn-wd btn-sm'
 									   name='finish' value='{% trans 'Finish' %}'/>
 							</div>
 							<div class="pull-left">

@@ -133,6 +133,8 @@ $(document).ready(function(){
         readURL(this);
     });
 
+
+    // Radios
     $('[data-toggle="wizard-radio"]').click(function(){
         wizard = $(this).closest('.wizard-card');
         wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
@@ -181,6 +183,8 @@ $(document).ready(function(){
         $(this).find('[type="radio"]').attr('checked','true');
     });
 
+
+    // CheckBoxes
     $('[data-toggle="wizard-checkbox"]').click(function(){
         if( $(this).hasClass('active')){
             $(this).removeClass('active');
