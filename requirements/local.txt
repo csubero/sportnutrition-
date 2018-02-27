@@ -1,0 +1,9 @@
+appdirs
+Django
+django-appconf
+django-ckeditor
+image
+mysqlclient
+Pillow
+pyparsing
+six
