@@ -16,7 +16,14 @@ services:
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
+      - ~/.ssh:/home/root/.ssh
     ports:
       - "8000:8000"
     links:
       - db
+
+  mailcatcher:
+    image: yappabe/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"
