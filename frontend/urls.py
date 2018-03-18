@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
+from django.urls import path
 
-from frontend.views import IndexTemporalView, IndexView, PostDetailView, PostIndexView, AboutPageView, SearchView, \
-	QuestionnaireView
+from frontend.views import *
 
 urlpatterns = [
 	# url(r'^$', IndexTemporalView.as_view(), name='frontend.index'),
@@ -19,6 +19,9 @@ urlpatterns = [
 
 	# Questionnaire URL'S
 	url(r'^questionnaire/$', QuestionnaireView.as_view(), name='frontend.questionnaire.index'),
+
+	# Contact URL'S
+	path('contact-us', ContactView.as_view(), name='frontend.contact_us'),
 ]
 
 if settings.DEBUG:

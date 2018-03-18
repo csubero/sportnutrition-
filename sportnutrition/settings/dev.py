@@ -136,3 +136,12 @@ CKEDITOR_CONFIGS = {
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 
 CKEDITOR_UPLOAD_PATH = "articles/"
+
+if DEBUG:
+	EMAIL_HOST = 'mailcatcher'
+	DEFAULT_FROM_EMAIL = "no-reply@sportnutritionlt.com"
+	FROM_EMAIL = 'no-reply@sportnutritionlt.com'
+	EMAIL_HOST_USER = ''
+	EMAIL_HOST_PASSWORD = ''
+	EMAIL_PORT = 1025
+	EMAIL_USE_TLS = False
