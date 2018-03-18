@@ -10,6 +10,6 @@ class QuestionnaireView(View):
 
 	def post(self, request):
 
-		print(request.POST.get('alcohol_intake'))
+		print(request.POST)
 
 		return render(request, self.template_name)

@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.conf.urls import url
 from django.conf.urls.static import static
 from django.urls import path
 
@@ -11,7 +10,7 @@ urlpatterns = [
 
 	# Posts URL'S
 	path('posts/', PostIndexView.as_view(), name='frontend.post.index'),
-	path('post/(<slug:slug>/', PostDetailView.as_view(), name='frontend.post.detail'),
+	path('post/<slug:slug>/', PostDetailView.as_view(), name='frontend.post.detail'),
 
 	# Mixing Pages
 	path('about-us/', AboutPageView.as_view(), name='frontend.pages.about'),
