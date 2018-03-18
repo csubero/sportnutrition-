@@ -9,10 +9,7 @@ class IndexView(View):
 
 	def get(self, request):
 		context = {}
-		recent_posts = Post.objects.filter(status=Post.PUBLISH, active=True).order_by('created_at')
-
-		print('RECENT POSTS==============')
-		print(recent_posts)
+		recent_posts = Post.objects.filter(status=Post.PUBLISH, active=True).order_by('-created_at')
 
 		context['recent_posts'] = recent_posts
 
