@@ -27,4 +27,9 @@ class PostDetailView(DetailView):
 
 		data['categories'] = Category.objects.all().order_by('name')
 
+		data['recent_posts'] = Post.objects\
+			.filter(active=True, status=Post.PUBLISH)\
+			.exclude(id=self.object.id)\
+			.order_by('-updated_at')
+
 		return data

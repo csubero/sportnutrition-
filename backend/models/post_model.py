@@ -36,12 +36,12 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title.capitalize()
 
-	@staticmethod
-	def get_by_id(id):
+	@classmethod
+	def get_by_id(cls, id):
 		try:
-			post = Post.objects.get(pk=id)
+			post = cls.objects.get(pk=id)
 
-		except Post.DoesNotExist:
+		except cls.DoesNotExist:
 			post = None
 
 		return post
