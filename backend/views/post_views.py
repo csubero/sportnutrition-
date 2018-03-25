@@ -16,10 +16,6 @@ class PostListView(ListView):
 
 	paginate_by = 10
 
-	def get_queryset(self):
-
-		return Post.objects.filter(type=Post.POST)
-
 
 class PostCreateView(CreateView):
 	model = Post
@@ -37,12 +33,6 @@ class PostCreateView(CreateView):
 		data['title_form'] = 'Add new Post'
 
 		return data
-
-	def form_valid(self, form):
-		form.instance.type = Post.POST
-		result = super(PostCreateView, self).form_valid(form)
-
-		return result
 
 
 class PostUpdateView(UpdateView):

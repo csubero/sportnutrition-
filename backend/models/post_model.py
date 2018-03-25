@@ -20,49 +20,33 @@ class Post(models.Model):
 		(UNPUBLISH, _('Unpublished'))
 	)
 
-	POST = 1
-	TIP = 2
-	DIET = 3
-
-	POST_TYPE = (
-		(POST, 'Post'),
-		(TIP, 'Tip'),
-		(DIET, 'Diet')
-	)
-
 	title = models.CharField(max_length=250, unique=True)
 	summary = models.TextField()
 	body = models.TextField()
 	thumb = models.ImageField(default=None, upload_to='thumbs/%Y/%m/%d')
 	slug = models.SlugField(unique=True, max_length=150)
 	status = models.IntegerField(default=DRAFT, choices=POST_STATUS)
-	type = models.IntegerField(default=POST, choices=POST_TYPE)
 
-	categories = models.ManyToManyField(Category, default=None, blank=True)
+	categories = models.ManyToManyField(Category)
 
 	active = models.BooleanField(default=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 
 	def __str__(self):
-
-		return self.title.title()
+		return self.title.capitalize()
 
 	@staticmethod
 	def get_by_id(id):
-
 		try:
-
 			post = Post.objects.get(pk=id)
 
 		except Post.DoesNotExist:
-
 			post = None
 
 		return post
 
 	def save(self, *args, **kwargs):
-
 		self.title = self.title.lower()
 
 		if self.id is None:
