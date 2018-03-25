@@ -12,8 +12,7 @@ class PostIndexView(ListView):
 
 	paginate_by = 10
 
-	def get_queryset(self):
-		return Post.objects.filter(type=Post.POST, active=True, status=Post.PUBLISH).order_by('title')
+	ordering = 'title'
 
 
 class PostDetailView(DetailView):
