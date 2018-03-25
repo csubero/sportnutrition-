@@ -164,7 +164,7 @@
 									<figure class="post-img media">
 										<div class="mediaholder">
 											<a href="{% url 'frontend.post.detail' post.slug %}"
-											   title="{{ post.title|title }}">
+											   title="{{ post }}">
 												{% comment %}<img alt=""
 													 src="{{ post.thumb.url }}"/>{% endcomment %}
 												<div style="width: 280px; height: 200px;background-image: url('{{ post.thumb.url }}'); display: block">
@@ -178,7 +178,7 @@
 
 										<a href="{% url 'frontend.post.detail' post.slug %}">
 											<figcaption class="item-description">
-												<h5>{{ post.title|title }}</h5>
+												<h5>{{ post }}</h5>
 											</figcaption>
 										</a>
 
