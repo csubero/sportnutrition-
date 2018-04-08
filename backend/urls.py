@@ -1,11 +1,8 @@
 from django.conf import settings
-from django.conf.urls import url
 from django.conf.urls.static import static
 from django.urls import path
 
-from backend.views import IndexView, PostListView, CategoryIndexView, CategoryDeleteView, PostCreateView, \
-	PostUpdateView, PostDeleteView, TipListView, TipCreateView, TipUpdateView, TipDeleteView, TipUploadImageView, \
-	QuestionListView, QuestionCreateView
+from backend.views import *
 
 urlpatterns = [
 	path('', IndexView.as_view(), name='backend.index'),
