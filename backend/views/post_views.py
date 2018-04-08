@@ -16,6 +16,8 @@ class PostListView(ListView):
 
 	paginate_by = 10
 
+	ordering = '-created_at'
+
 
 class PostCreateView(CreateView):
 	model = Post
