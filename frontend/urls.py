@@ -21,6 +21,9 @@ urlpatterns = [
 
 	# Contact URL'S
 	path('contact-us/', ContactView.as_view(), name='frontend.contact_us'),
+
+	# Category URL'S
+	path('categories/<slug:slug>/', CategoryDetailView.as_view(), name='frontend.category.detail'),
 ]
 
 if settings.DEBUG:
