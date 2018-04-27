@@ -1,0 +1,82 @@
+{% extends 'frontend/layout/base.html' %}
+
+{% load i18n %}
+{% load  static %}
+
+{% block title %}
+	{% trans 'Contact Us' %}
+{% endblock %}
+
+{% block title_bar %}
+	<section id="titlebar">
+		<!-- Container -->
+		<div class="container">
+
+			<div class="eight columns">
+				<h2>{% trans 'Contact Us' %}</h2>
+			</div>
+
+			<div class="eight columns">
+				<nav id="breadcrumbs">
+					<ul>
+						<li>{% trans 'You are here' %}:</li>
+						<li><a href="{% url 'frontend.index.index' %}">Home</a></li>
+						<li>{% trans 'Contact Us' %}</li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+		<!-- Container / End -->
+	</section>
+{% endblock %}
+
+{% block content %}
+
+	<div class="container">
+
+		<div class="twelve alt columns">
+
+			<h3 class="headline">Contact Form</h3><span class="line" style="margin-bottom: 35px;"></span>
+			<div class="clearfix"></div>
+
+			<!-- Contact Form -->
+			<section id="contact">
+
+				<!-- Success Message -->
+				<mark id="message"></mark>
+
+				<!-- Form -->
+				<form method="post" action="">
+					{% csrf_token %}
+					<fieldset>
+
+						<div>
+							<label for="name" accesskey="U">{% trans 'Name' %}:</label>
+							{{ form.name }}
+						</div>
+
+						<div>
+							<label for="email" accesskey="E">{% trans 'Email' %}: <span>*</span></label>
+							{{ form.email }}
+						</div>
+
+						<div>
+							<label for="comments" accesskey="C">{% trans 'Message' %}: <span>*</span></label>
+							{{ form.message }}
+						</div>
+
+					</fieldset>
+
+					<input type="submit" class="submit" value="{% trans 'Send Message' %}"/>
+					<div class="clearfix"></div>
+
+				</form>
+
+			</section>
+			<!-- Contact Form / End -->
+
+		</div>
+	</div>
+
+{% endblock %}

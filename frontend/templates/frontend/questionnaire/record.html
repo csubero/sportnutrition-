@@ -1,0 +1,310 @@
+{% load i18n %}
+
+<div class="tab-pane" id="record">
+	<h4 class="info-text">Reason for consultation</h4>
+	<div class="row">
+		<h5 class="info-text"><strong>{% trans 'Family background' %}</strong></h5>
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-1">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'Cardiovascular Disease' %}">
+					<input type="checkbox" name="family_background" value="Cardiovascular Disease">
+					<div class="icon">
+						<i class="fa fa-heartbeat"></i>
+					</div>
+					<h6>{% trans 'Cardiovascular Disease' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'High Blood Pressure' %}">
+					<input type="checkbox" name="family_background" value="High Blood Pressure">
+					<div class="icon">
+						<i class="fa fa-heart"></i>
+					</div>
+					<h6>{% trans 'High Blood Pressure' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'Diabetes' %}">
+					<input type="checkbox" name="family_background" value="Diabetes">
+					<div class="icon">
+						<i class="fa fa-medkit"></i>
+					</div>
+					<h6>{% trans 'Diabetes' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'Insuline Resistence' %}">
+					<input type="checkbox" name="family_background" value="Insuline Resistence">
+					<div class="icon">
+						<i class="fa fa-medkit"></i>
+					</div>
+					<h6>{% trans 'Insuline Resistence' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'Obesity or Overweight' %}">
+					<input type="checkbox" name="family_background" value="Obesity or Overweight">
+					<div class="icon">
+						<i class="fa fa-balance-scale"></i>
+					</div>
+					<h6>{% trans 'Obesity or Overweight' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Other' %}</label>
+					<input type="text" name="family_background_other" class="form-control"
+						   id="family_background_other">
+				</div>
+			</div>
+		</div>
+
+
+		<h5 class="info-text"><strong>{% trans 'Personal background' %}</strong></h5>
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-1">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'Cardiovascular Disease' %}">
+					<input type="checkbox" name="personal_background" value="Cardiovascular Disease">
+					<div class="icon">
+						<i class="fa fa-heartbeat"></i>
+					</div>
+					<h6>{% trans 'Cardiovascular Disease' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'High Blood Pressure' %}">
+					<input type="checkbox" name="personal_background" value="High Blood Pressure">
+					<div class="icon">
+						<i class="fa fa-heart"></i>
+					</div>
+					<h6>{% trans 'High Blood Pressure' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'Diabetes' %}">
+					<input type="checkbox" name="personal_background" value="Diabetes">
+					<div class="icon">
+						<i class="fa fa-medkit"></i>
+					</div>
+					<h6>{% trans 'Diabetes' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'Insuline Resistence' %}">
+					<input type="checkbox" name="personal_background" value="Insuline Resistence">
+					<div class="icon">
+						<i class="fa fa-medkit"></i>
+					</div>
+					<h6>{% trans 'Insuline Resistence' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="choice" data-toggle="wizard-checkbox" rel="tooltip"
+					 title="{% trans 'Obesity or Overweight' %}">
+					<input type="checkbox" name="personal_background" value="Obesity or Overweight">
+					<div class="icon">
+						<i class="fa fa-balance-scale"></i>
+					</div>
+					<h6>{% trans 'Obesity or Overweight' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Other' %}</label>
+					<input type="text" name="personal_background_other" class="form-control"
+						   id="family_background_other">
+				</div>
+			</div>
+		</div>
+
+		<h5 class="info-text"><strong>{% trans 'Pharmacological Treatment' %}</strong></h5>
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Medication' %}</label>
+					<input type="text" name="medication" class="form-control"
+						   id="medication">
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Vitamins Supplements' %}</label>
+					<input type="text" name="vitamins" class="form-control"
+						   id="vitamins">
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Others' %}</label>
+					<input type="text" name="others" class="form-control"
+						   id="others">
+				</div>
+			</div>
+		</div>
+		<h5 class="info-text"><strong>{% trans 'Gastrointestinal Habits' %}</strong></h5>
+		<div class="row">
+			<div class="col-sm-5 col-sm-offset-1">
+				<div class="choice" data-toggle="wizard-radio-habits" rel="tooltip"
+					 title="{% trans 'Regular' %}">
+					<input type="radio" name="gastrointestinal_habits" value="Regular">
+					<div class="icon">
+						<i class="fa fa-check"></i>
+					</div>
+					<h6>{% trans 'Regular' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="choice" data-toggle="wizard-radio-habits" rel="tooltip"
+					 title="{% trans 'Irregular' %}">
+					<input type="radio" name="gastrointestinal_habits" value="Irregular">
+					<div class="icon">
+						<i class="fa fa-ban"></i>
+					</div>
+					<h6>{% trans 'Irregular' %}</h6>
+				</div>
+			</div>
+		</div>
+
+		<h5 class="info-text"><strong>{% trans 'Food Allergies' %}</strong></h5>
+		<div class="row">
+			<div class="col-sm-5 col-sm-offset-1">
+				<div class="choice" data-toggle="wizard-radio-allergies" rel="tooltip"
+					 title="{% trans 'Yes' %}">
+					<input type="radio" name="food_allergies" value="Yes">
+					<div class="icon">
+						<i class="fa fa-check"></i>
+					</div>
+					<h6>{% trans 'Yes' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="choice" data-toggle="wizard-radio-allergies" rel="tooltip"
+					 title="{% trans 'No' %}">
+					<input type="radio" name="food_allergies" value="No">
+					<div class="icon">
+						<i class="fa fa-ban"></i>
+					</div>
+					<h6>{% trans 'No' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Specify' %}</label>
+					<input type="text" name="food_allergies_specify" class="form-control"
+						   id="food_allergies_specify">
+				</div>
+			</div>
+		</div>
+
+		<h5 class="info-text"><strong>{% trans 'Alcohol Intake' %}</strong></h5>
+		<div class="row">
+			<div class="col-sm-5 col-sm-offset-1">
+				<div class="choice" data-toggle="wizard-radio-alcohol" rel="tooltip"
+					 title="{% trans 'Yes' %}">
+					<input type="radio" name="alcohol_intake" value="Yes">
+					<div class="icon">
+						<i class="fa fa-check"></i>
+					</div>
+					<h6>{% trans 'Yes' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="choice" data-toggle="wizard-radio-alcohol" rel="tooltip"
+					 title="{% trans 'No' %}">
+					<input type="radio" name="alcohol_intake" value="No">
+					<div class="icon">
+						<i class="fa fa-ban"></i>
+					</div>
+					<h6>{% trans 'No' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Frequency' %}</label>
+					<input type="text" name="alcohol_intake_frequency" class="form-control"
+						   id="alcohol_intake_frequency">
+				</div>
+			</div>
+		</div>
+
+		<h5 class="info-text"><strong>{% trans 'Tobacco Use' %}</strong></h5>
+		<div class="row">
+			<div class="col-sm-5 col-sm-offset-1">
+				<div class="choice" data-toggle="wizard-radio-tobacco" rel="tooltip"
+					 title="{% trans 'Yes' %}">
+					<input type="radio" name="tobacco_use" value="Yes">
+					<div class="icon">
+						<i class="fa fa-check"></i>
+					</div>
+					<h6>{% trans 'Yes' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-5">
+				<div class="choice" data-toggle="wizard-radio-tobacco" rel="tooltip"
+					 title="{% trans 'No' %}">
+					<input type="radio" name="tobacco_use" value="No">
+					<div class="icon">
+						<i class="fa fa-ban"></i>
+					</div>
+					<h6>{% trans 'No' %}</h6>
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Passive Smoking' %}</label>
+					<input type="text" name="passive_smoking" class="form-control"
+						   id="passive_smoking">
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Frequency' %}</label>
+					<input type="text" name="active_smoking" class="form-control"
+						   id="active_smoking">
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Frequency' %}</label>
+					<input type="text" name="tobacco_use_frequency" class="form-control"
+						   id="tobacco_use_frequency">
+				</div>
+			</div>
+		</div>
+
+		<h5 class="info-text"><strong>{% trans 'Sport Activity' %}</strong></h5>
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Sedentary' %}</label>
+					<input type="text" name="sendentary" class="form-control"
+						   id="sendentary">
+				</div>
+			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="form-group">
+					<label>{% trans 'Active' %}</label>
+					<input type="text" name="active" class="form-control"
+						   id="active">
+				</div>
+			</div>
+
+			<div class="col-sm-10 col-sm-offset-1">
+				<h5 class="info-text">{% trans 'Sport Routin (from one kind of exercise in particular (more than two hours daily)' %}</h5>
+				<div class="form-group">
+					<label>{% trans 'Specify Routin' %}</label>
+					<input type="text" name="routine" class="form-control" id="routine">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

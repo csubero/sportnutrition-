@@ -21,4 +21,5 @@ urlpatterns = [
 	url(r'^', include('frontend.urls')),
 	url(r'^admin/', admin.site.urls),
 	url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+	url(r'^i18n/', include('django.conf.urls.i18n')),
 ]

@@ -2,13 +2,21 @@ import itertools
 from django.db import models
 from django.template.defaultfilters import slugify
 
-from backend.models import Gallery, Image
+from backend.models import Image
 
 
 class Tip(models.Model):
+	DIET = 1
+
+	TIP_TYPE = (
+		(DIET, 'Diet'),
+	)
+
 	title = models.CharField(max_length=150)
 	content = models.TextField()
 	slug = models.SlugField(unique=True, max_length=150)
+
+	tip_type = models.IntegerField(default=DIET, choices=TIP_TYPE)
 
 	images = models.ManyToManyField(Image)
 

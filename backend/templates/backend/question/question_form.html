@@ -1,0 +1,67 @@
+{% extends 'backend/layout/template.html' %}
+
+{% block title %}
+	{{ title_form }}
+{% endblock %}
+
+{% block header_title %}
+	{{ title_form }}
+{% endblock %}
+
+
+{% block content %}
+
+	<div class="row">
+		<div class="col-md-6 col-md-push-3">
+			<div class="card">
+				<div class="card-header" data-background-color="green">
+					<h4 class="title">{{ title_form }}</h4>
+				</div>
+				<div class="card-content">
+					<form method="post" action="">{% csrf_token %}
+						<div class="form-group label-floating">
+							<label class="control-label">{{ form.english_question.label }}</label>
+							{{ form.english_question }}
+							{% if form.english_question.errors %}
+								<ol>
+									{% for error in form.english_question.errors %}
+										<li class="text-danger"><strong>{{ error|escape }}</strong></li>
+									{% endfor %}
+								</ol>
+							{% endif %}
+						</div>
+						<div class="form-group label-floating">
+							<label class="control-label">{{ form.spanish_question.label }}</label>
+							{{ form.spanish_question }}
+							{% if form.spanish_question.errors %}
+								<ol>
+									{% for error in form.spanish_question.errors %}
+										<li class="text-danger"><strong>{{ error|escape }}</strong></li>
+									{% endfor %}
+								</ol>
+							{% endif %}
+						</div>
+						<div class="form-group text-right">
+							<a class="btn btn-danger" href="{{ reverse_url }}">Cancel</a>
+							<button type="submit" class="btn btn-success">Save</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+
+{% block script_js %}
+
+	<script>
+
+        $('.nav li').removeClass('active');
+
+        $('#question_tab').addClass('active');
+
+	</script>
+
+{% endblock %}

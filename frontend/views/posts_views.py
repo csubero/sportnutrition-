@@ -12,6 +12,8 @@ class PostIndexView(ListView):
 
 	paginate_by = 10
 
+	ordering = 'title'
+
 
 class PostDetailView(DetailView):
 	model = Post
@@ -24,5 +26,10 @@ class PostDetailView(DetailView):
 		data = super(PostDetailView, self).get_context_data(**kwargs)
 
 		data['categories'] = Category.objects.all().order_by('name')
+
+		data['recent_posts'] = Post.objects\
+			.filter(active=True, status=Post.PUBLISH)\
+			.exclude(id=self.object.id)\
+			.order_by('-updated_at')
 
 		return data

@@ -1,0 +1,50 @@
+{% load i18n %}
+
+<div class="tab-pane" id="alimentary_habits">
+	<div class="row">
+		<h4 class="info-text">{% trans '24 Hours Reminder' %}</h4>
+		<p class="info-text">{% trans 'Please specify hours, amounts and food preparation method' %}</p>
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="form-group">
+				<label>{% trans 'Breakfast' %}</label>
+				<input class="form-control" placeholder="" name="breakfast" id="breakfast">
+			</div>
+		</div>
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="form-group">
+				<label>{% trans 'Snack' %}</label>
+				<input class="form-control" placeholder="" name="breakfast_snack" id="breakfast_snack">
+			</div>
+		</div>
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="form-group">
+				<label>{% trans 'Lunch' %}</label>
+				<input class="form-control" placeholder="" name="lunch" id="lunch">
+			</div>
+		</div>
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="form-group">
+				<label>{% trans 'Snack' %}</label>
+				<input class="form-control" placeholder="" name="lunch_snack" id="lunch_snack">
+			</div>
+		</div>
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="form-group">
+				<label>{% trans 'Dinner' %}</label>
+				<input class="form-control" placeholder="" name="dinner" id="dinner">
+			</div>
+		</div>
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="form-group">
+				<label>{% trans 'Snack' %}</label>
+				<input class="form-control" placeholder="" name="dinner_snack" id="dinner_snack">
+			</div>
+		</div>
+		<div class="col-sm-10 col-sm-offset-1">
+			<div class="form-group">
+				<label>{% trans 'What food you always NEED to eat?' %}</label>
+				<input class="form-control" placeholder="" name="always_food" id="always_food">
+			</div>
+		</div>
+	</div>
+</div>

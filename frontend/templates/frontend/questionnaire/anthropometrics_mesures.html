@@ -1,0 +1,25 @@
+{% load i18n %}
+
+<div class="tab-pane" id="anthropometrics_mesures">
+	<div class="row">
+		<h4 class="info-text">{% trans 'Anthropometrics Measures' %}</h4>
+		<div class="col-sm-2 col-sm-offset-3">
+			<div class="form-group">
+				<label>{% trans 'Usual Weight' %}</label>
+				<input class="form-control" placeholder="" name="usual_weight" id="usual_weight" type="number">
+			</div>
+		</div>
+		<div class="col-sm-2">
+			<div class="form-group">
+				<label>{% trans 'Current Weight' %}</label>
+				<input class="form-control" placeholder="" name="current_weight" id="current_weight" type="number">
+			</div>
+		</div>
+		<div class="col-sm-2">
+			<div class="form-group">
+				<label>{% trans 'Height' %}</label>
+				<input class="form-control" placeholder="" name="height" id="height" type="number">
+			</div>
+		</div>
+	</div>
+</div>
