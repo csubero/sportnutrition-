@@ -56,9 +56,12 @@
 					<header class="meta">
 						<h2><a href="#">{{ post }}</a></h2>
 						<ul>
-							<li>By <a href="#">Charlie Smith</a> - {{ post.created_at }}</li>
-							<li><a href="#">Technology</a>, <a href="#">Painting</a></li>
-							<li><a href="#">2 Comments</a></li>
+							<li>{{ post.created_at }}</li>
+							<li>
+								{% for category in post.categories.all %}
+									<a href="#">{{ category }}</a>
+								{% endfor %}
+							</li>
 						</ul>
 					</header>
 
@@ -80,15 +83,6 @@
 			</fieldset>
 
 
-			<!-- About -->
-			<div class="widget">
-				<h3 class="headline">About</h3><span class="line"></span>
-				<div class="clearfix"></div>
-				<p>Morbi eros bibendum lorem ipsum dolor pellentesque sed vel consectetur pulvinar pellentesque varius
-					bibendum. </p>
-			</div>
-
-
 			<!-- Categories -->
 			<div class="widget">
 				<h3 class="headline">Categories</h3><span class="line"></span>
@@ -96,7 +90,7 @@
 				<nav class="categories">
 					<ul>
 						{% for category in categories %}
-							<li><a href="#">{{ category }}</a></li>
+							<li><a href="{% url 'frontend.category.detail' category.slug %}">{{ category }}</a></li>
 						{% endfor %}
 					</ul>
 				</nav>
@@ -108,9 +102,8 @@
 
 				<!-- Tabs Navigation -->
 				<ul class="tabs-nav blog">
-					<li class="active"><a href="#tab1" title="Recent Posts"><i class="icon-time"></i></a></li>
-					<li><a href="#tab2" title="Popular Posts"><i class="icon-star"></i></a></li>
-					<li><a href="#tab3" title="Recent Comments"><i class="icon-comments-alt"></i></a></li>
+					<li class="active" style="width: 100%"><a href="#tab1" title="Recent Posts"><i
+							class="icon-time"></i></a></li>
 				</ul>
 
 				<!-- Tabs Content -->
@@ -120,46 +113,24 @@
 
 						<!-- Recent Posts -->
 						<ul class="widget-tabs">
+							{% for recent_post in recent_posts %}
+								<li>
+									<div class="widget-thumb">
+										<a href="{% url 'frontend.post.detail' recent_post.slug %}">
+											<img src="{{ recent_post.thumb.url }}" alt="{{ recent_post }}"/>
+										</a>
+									</div>
 
-							<!-- Post #1 -->
-							<li>
-								<div class="widget-thumb">
-									<a href="#"><img src="images/blog-widget-01.jpg" alt=""/></a>
-								</div>
-
-								<div class="widget-text">
-									<h4><a href="#">How To Download The Google Fonts Catalog</a></h4>
-									<span>28 May 2013</span>
-								</div>
-								<div class="clearfix"></div>
-							</li>
-
-							<!-- Post #2 -->
-							<li>
-								<div class="widget-thumb">
-									<a href="#"><img src="images/blog-widget-02.jpg" alt=""/></a>
-								</div>
-
-								<div class="widget-text">
-									<h4><a href="#">The State of the Digital Music Industry</a></h4>
-									<span>16 May 2013</span>
-								</div>
-								<div class="clearfix"></div>
-
-							</li>
-
-							<!-- Post #3 -->
-							<li>
-								<div class="widget-thumb">
-									<a href="#"><img src="images/blog-widget-03.jpg" alt=""/></a>
-								</div>
-
-								<div class="widget-text">
-									<h4><a href="#">Solving the Puzzles of Mimicry in Nature</a></h4>
-									<span>10 May 2013</span>
-								</div>
-								<div class="clearfix"></div>
-							</li>
+									<div class="widget-text">
+										<h4>
+											<a href="{% url 'frontend.post.detail' recent_post.slug %}">
+												{{ recent_post }}</a>
+										</h4>
+										<span>{{ recent_post.created_at|date:'d M Y' }}</span>
+									</div>
+									<div class="clearfix"></div>
+								</li>
+							{% endfor %}
 						</ul>
 
 					</div>

@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: mysql
+    ports: 
+      - "3306:3306"
+
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: sportnutrition
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: sportnutrition
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+      - ~/.ssh:/home/root/.ssh
+    ports:
+      - "8000:8000"
+    links:
+      - db
+
+  mailcatcher:
+    image: yappabe/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"

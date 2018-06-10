@@ -1,15 +1,11 @@
 {% extends 'backend/layout/template.html' %}
 
 {% block title %}
-
-	Post
-
+	Posts
 {% endblock %}
 
 {% block header_title %}
-
-	Post
-
+	Posts
 {% endblock %}
 
 {% block content %}
@@ -18,12 +14,7 @@
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header" data-background-color="green">
-					<h4>Post</h4>
-					<p>
-						<a href="{% url 'backend.post.create' %}" class="btn btn-primary btn-xs"><i
-								class="ti ti-file"></i>
-							New Post</a>
-					</p>
+					<h4>Posts</h4>
 				</div>
 				<div class="card-content table-responsive">
 					<table class="table">
@@ -43,7 +34,7 @@
 						<tbody>
 						{% for post in post_list %}
 							<tr>
-								<td>{{ post.title|capfirst }}</td>
+								<td>{{ post }}</td>
 								<td>{{ post.created_at }}</td>
 								<td>{{ post.get_status_display }}</td>
 								<td class="text-center"><a href="{% url 'backend.post.edit' post.pk %}" title="Edit"><i
@@ -69,6 +60,11 @@
 						</tbody>
 					</table>
 				</div>
+				<div class="card-footer row">
+					<div class="col-md-6 text-right col-md-offset-6">
+						<a href="{% url 'backend.post.create' %}"><i class="fa fa-plus" aria-hidden="true"></i> New Post</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -84,13 +80,13 @@
 {% block script_js %}
 
 	<script>
-        $('.nav li').removeClass('active');
+		$('.nav li').removeClass('active');
 
-        $('#post_tab').addClass('active');
+		$('#post_tab').addClass('active');
 
-        function delete_post(post_id) {
-            $("#post_id").val(post_id);
-        }
+		function delete_post(post_id) {
+			$("#post_id").val(post_id);
+		}
 
 	</script>
 
