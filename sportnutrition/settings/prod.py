@@ -81,7 +81,7 @@ DATABASES = {
 		'USER': 'csubero',
 		'PASSWORD': 'casa1309',
 		'HOST': 'csubero.c4vt1qutla9c.us-east-1.rds.amazonaws.com',
-		'PORT': '',
+		'PORT': '3306',
 	}
 }
 
