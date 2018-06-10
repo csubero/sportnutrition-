@@ -24,7 +24,7 @@ SECRET_KEY = 'y)90@1lex*j%47*5*((ws1c8f)2zs3c&*1584x60!f)-ulh%tm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.sportnutritionlt.com', '52.44.153.103']
+ALLOWED_HOSTS = ['.sportnutritionlt.com', '52.91.102.144']
 
 # Application definition
 
@@ -78,9 +78,9 @@ DATABASES = {
 	'default': {
 		'ENGINE': 'django.db.backends.mysql',
 		'NAME': 'sportnutrition',
-		'USER': 'sportuser',
-		'PASSWORD': 'C@sa1234',
-		'HOST': '127.0.0.1',
+		'USER': 'csubero',
+		'PASSWORD': 'casa1309',
+		'HOST': 'csubero.c4vt1qutla9c.us-east-1.rds.amazonaws.com',
 		'PORT': '',
 	}
 }
